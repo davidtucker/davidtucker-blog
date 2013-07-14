@@ -1,0 +1,61 @@
+//------------------------------------------------------------------------
+// Section-Specific Variables
+//------------------------------------------------------------------------
+
+$position_float_margin: 25px;
+
+//------------------------------------------------------------------------
+// Section Styles
+//------------------------------------------------------------------------
+
+figure
+{
+	width: 315px;
+	img
+	{
+		width: 100%;
+		border: 3px solid #707070;
+	}
+
+	figcaption
+	{
+		width: 100%;
+		font-style: italic;
+		color: #AFAFAF;
+	}
+}
+
+.fig_right
+{
+	float: right;
+	margin-left: $position_float_margin;
+
+	@include respond-to(handhelds)
+	{
+		float: none;
+		width: 100%;
+		margin-left: 0px;
+		padding: 10px;
+	}
+
+	figcaption
+	{
+		text-align: right;
+
+		@include respond-to(handhelds)
+		{
+			text-align: left;
+		}
+	}
+}
+
+.fig_left
+{
+	float: left;
+	margin-right: $position_float_margin;
+
+	figcaption
+	{
+		text-align: left;
+	}
+}

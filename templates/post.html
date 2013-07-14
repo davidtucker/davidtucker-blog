@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% block canonical %}{{ url }}{{ page.url }}{% endblock %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block meta %}
+		{{ super() }}
+		{% if page.metadata.keywords %}<meta name="keywords" content="{{ page.metadata.keywords }}">{% endif %}
+		{% if page.metadata.ogimage %}
+		{% set ogImageAbsolutePath = contentHelpers.getPathToLocalAssetWithFilename(page, page.metadata.ogimage) %}
+		<meta property="og:image" content="{{ url }}{{ ogImageAbsolutePath }}">
+		{% else %}
+		<meta property="og:image" content="{{ url }}{{ defaultOGImage }}">
+		{% endif %}
+		<meta property="og:title" content="{{ page.title }}">
+		<meta property="og:url" content="{{ url }}{{ page.url }}">
+		<meta property="og:site_name" content="{{ siteName }}">
+		<meta property="og:type" content="blog">
+		<meta property="og:description" content="{{ page.metadata.short_description }}">
+{% endblock %}
+{% block content %}
+		<div class="row">
+			<div class="twelve columns">
+				<article>
+					<div class="small-caption">{{ moment(page.date).format(dateDescriptionFormat) }}</div>
+					<h1>{{ page.title }}</h1>
+					{% if page.metadata.subtitle %}
+					<div class="subtitle">{{ page.metadata.subtitle }}</div>
+					{% endif %}
+					{{ page.html }}
+				</article>
+			</div>
+		</div>
+		<div class="row">
+			<div class="twelve columns">
+				<div class="panel">
+					<img src="/images/headshot.jpg" class="headshot" />
+					<p>David Tucker is software architect and developer who currently serves at <a href="http://www.universalmind.com/" target="_blank">Universal Mind</a> as the Director of Research and Development for Technology.  David is a regular speaker and writer for industry conferences and publications.</p>
+					<div>
+						<a class="mono button accent" href="/about/">More About <em>David Tucker</em></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<section class="featureBar darkGrey">
+			{% if page.metadata.tweet_id %}
+			<div class="row">
+				<div class="twelve columns">
+					<h2 class="light">Discuss</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="eight columns">
+					<p>I pretty much like to keep all of the discussion on Twitter.  If you have a comment about this article, please feel free to click the button and leave a well thought out and respectful response.</p>
+				</div>
+				<div class="four columns align-right hide-for-small">
+					<div class="mono button discuss" data-tweet="{{ page.metadata.tweet_id }}">Discuss on <em>Twitter</em></div>
+				</div>
+			</div>
+			<div class="row show-for-small">
+				<div class="twelve columns align-center bottom-button">
+					<div class="mono button discuss" data-tweet="{{ page.metadata.tweet_id }}">Discuss on <em>Twitter</em></div>
+				</div>
+			</div>
+			{% endif %}
+			<div class="row">
+				<div class="twelve columns">
+					<h2 class="light">Share</h2>
+				</div>
+			</div>
+			<div class="row">
+				<ul class="small-block-grid-2 large-block-grid-6">
+				  <li><div href="#" class="share-button email"></div></li>
+				  <li><div href="#" class="share-button twitter"></div></li>
+				  <li><div href="#" class="share-button facebook"></div></li>
+				  <li><div href="#" class="share-button googleplus"></div></li>
+				  <li><div href="#" class="share-button appnet"></div></li>
+				  <li><div href="#" class="share-button linkedin"></div></li>
+				</ul>
+			</div>
+		</section>
+{% endblock %}

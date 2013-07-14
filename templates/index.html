@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+{% block canonical %}{{ url }}/{% endblock %}
+{% block title %}{{ page.title }}{% endblock %}{% block post_title %}{% endblock %}
+{% block meta %}
+		{{ super() }}
+		{% if page.metadata.keywords %}<meta name="keywords" content="{{ page.metadata.keywords }}">{% endif %}
+{% endblock %}
+{% block content %}
+		
+		<section class="featureBar" style="background-image:url('/images/iptbg.jpg');background-size: 100% 100%;">
+			<div class="row">
+				
+				<div class="small-12 columns">
+					<img src="/images/webby1.png" alt="iPad Table Wins People's Voice Webby" />
+				</div>
+
+			</div>
+		</section>
+
+		<section class="featureBar darkGrey" style="background-color: #aaaaaa;">
+			<div class="row">
+				<div class="large-9 small-12 columns">
+					<h3 style="color: #FFFFFF;margin-bottom: 0px;"><b>David Tucker</b> is a software architect who focuses on engaging experiences across technologies and devices.</h3>
+				</div>
+				<div class="large-3 small-12 columns" style="text-align: right;">
+					<a href="#" class="mono button accent" style="margin-top: 10px;"><b>About</b> David</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="featureBar">
+			<div class="row">
+				<div class="small-12 columns">
+					<h2 class="dark">Featured Articles</h2>
+				</div>
+			</div>
+			<div class="row">
+				{% set secondaryFeatures = contentHelpers.sequenceFromString(page.metadata.secondaryfeatures) %}
+				{% set numColumns = contentHelpers.numColumnsStringForArray(secondaryFeatures) %}
+  				{% for feature in secondaryFeatures %}
+  				{% set article = contentHelpers.getContentItemByNameFromContentFolder(contents, "articles", feature) %}
+				<div class="large-{{ numColumns }} small-12 columns blogTeaser">
+					<h3 class="articleTitle"><a href="{{ article.url }}">{{ article.title }}</a></h3>
+					<p class="dateTime">{{ moment(article.date).format(dateDescriptionFormat) }}</p>
+					{% if article.metadata.short_description %}
+					<p>{{ article.metadata.short_description }}</p>
+					{% else %}
+					<p>{{ article.intro }}</p>
+					{% endif %}
+					<div class="readMore show-for-small">
+						<a href="{{ article.url }}" class="mono button accent" style="margin-bottom: 25px;">Read More</a>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<div class="row hide-for-small">
+				{% for feature in secondaryFeatures %}
+  				{% set article = contentHelpers.getContentItemByNameFromContentFolder(contents, "articles", feature) %}
+				<div class="large-{{ numColumns }} small-12 columns blogTeaser">
+					<div class="readMore">
+						<a href="{{ article.url }}" class="mono button accent">Read More</a>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</section>
+
+		<section class="darkGrey featureBar around-web">
+			<div class="row">
+				<div class="small-12 columns">
+					<h2 class="light">Around the Web</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-4 small-12 columns">
+					<div class="align-center column-image">
+						<img src="images/front/twitterIcon.png">
+					</div>
+					<h4 class="align-center">Highlighted Tweets</h4>
+					<div class="column-content">
+						<ul>
+							<li>
+								<p>Our latest @universalmind R&amp;D project done by @merhl and I is now featured on @tuaw … #umlabs - More on this tomorrow!</p>
+								<p class="caption"><span class="twitter-tweet pseudo-link" data-tweetid="296754984576487425">18 November 6:15pm</span></p>
+							</li>
+						</ul>
+						<div class="align-center show-for-small">
+							<a class="mono button" href="#">Follow <em>@mindmillmedia</em></a>
+						</div>
+					</div>
+				</div>
+				<div class="large-4 small-12 columns">
+					<div class="align-center column-image">
+						<img src="images/front/github.png">
+					</div>
+					<h4 class="align-center">Selected Code</h4>
+					<div class="column-content">
+						<ul>
+							<li>
+								<p>DavidTucker.net Website using Wintersmith a NodeJS Static Site Generator</p>
+								<p class="caption"><a href="https://github.com/davidtucker/ST2PowerTools" target="_blank">Code at Github</a></p>
+							</li>
+							<li>
+								<p>ST2 Power Tools: Startup Tools for Sencha Touch 2 Development to reduce boilerplate code</p>
+								<p class="caption"><a href="https://github.com/davidtucker/ST2PowerTools" target="_blank">Code at Github</a></p>
+							</li>
+						</ul>
+						<div class="align-center show-for-small">
+							<a class="mono button" href="#">View <em>Github Projects</em></a>
+						</div>
+					</div>
+				</div>
+				<div class="large-4 small-12 columns">
+					<div class="align-center column-image">
+						<img src="images/front/writing.png">
+					</div>
+					<h4 class="align-center">Featured Writing</h4>
+					<div class="column-content">
+						<ul>
+							<li>
+								<p>10 Things to Know When Creating a Mobile Application - Examining the Mobile Development Process</p>
+								<p class="caption"><a href="http://mashable.com/2012/02/24/mobile-app-planning/" target="_blank">Published at Mashable</a></p>
+							</li>
+							<li>
+								<p>What the iPhone 5 Means for Consumers - Pondering the Potential Consumer Impact</p>
+								<p class="caption"><a href="http://www.appolicious.com/tech/articles/12711-the-iphone-5-what-could-it-mean-for-consumers" target="_blank">Published at Appolicious</a></p>
+							</li>
+						</ul>
+						<div class="align-center show-for-small">
+							<a class="mono button" href="/curriculum-vitae/#writing">View <em>Writing</em></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row hide-for-small">
+				<div class="large-4 small-12 columns">
+					<div class="align-center">
+						<div class="mono button twitter-follow">Follow <em>@mindmillmedia</em></div>
+					</div>
+				</div>
+				<div class="large-4 small-12 columns">
+					<div class="align-center">
+						<a class="mono button" href="#">View <em>Github Projects</em></a>
+					</div>
+				</div>
+				<div class="large-4 small-12 columns">
+					<div class="align-center">
+						<a class="mono button" href="/curriculum-vitae/#writing">View <em>Writings</em></a>
+					</div>
+				</div>
+			</div>
+		</section>
+{% endblock %}

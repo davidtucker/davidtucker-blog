@@ -1,0 +1,126 @@
+// Global Foundation Settings
+@import "settings";
+
+// Comment out this import if you are customizing you imports below
+//@import "foundation";
+
+// Import specific parts of Foundation by commenting the import "foundation"
+// and uncommenting what you want below. You must uncomment the following if customizing
+
+@import "foundation/foundation-global"; // *always required
+@import "foundation/components/global"; // *always required
+@import "foundation/components/grid";
+@import "foundation/components/visibility";
+@import "foundation/components/block-grid";
+@import "foundation/components/type";
+// @import "foundation/components/buttons";
+// @import "foundation/components/forms"; // *requires components/buttons
+// @import "foundation/components/custom-forms"; // *requires components/buttons, components/forms
+// @import "foundation/components/button-groups"; // *requires components/buttons
+// @import "foundation/components/dropdown-buttons"; // *requires components/buttons
+// @import "foundation/components/split-buttons"; // *requires components/buttons
+@import "foundation/components/flex-video";
+@import "foundation/components/section";
+// @import "foundation/components/top-bar";  // *requires components/grid
+// @import "foundation/components/orbit";
+// @import "foundation/components/reveal";
+// @import "foundation/components/joyride";
+@import "foundation/components/clearing";
+// @import "foundation/components/alert-boxes";
+// @import "foundation/components/breadcrumbs";
+// @import "foundation/components/keystrokes";
+// @import "foundation/components/labels";
+// @import "foundation/components/inline-lists";
+// @import "foundation/components/pagination";
+// @import "foundation/components/panels";
+// @import "foundation/components/pricing-tables";
+// @import "foundation/components/progress-bars";
+// @import "foundation/components/side-nav";
+// @import "foundation/components/sub-nav";
+// @import "foundation/components/switch";
+// @import "foundation/components/magellan";
+// @import "foundation/components/tables";
+// @import "foundation/components/thumbs";
+// @import "foundation/components/tooltips";
+// @import "foundation/components/dropdown";
+
+@import "compass/css3";
+
+@import "variables";
+@import "mixins";
+@import "typography";
+@import "header";
+@import "footer";
+@import "front";
+@import "images";
+@import "icons";
+@import "code";
+@import "default";	
+
+//------------------------------------------------------------------------
+// PANELS
+//------------------------------------------------------------------------
+
+/*
+	The following style was extracted from foundation CSS's UI elements
+	stylesheet.  This was the only visual element I wanted, so I just
+	included it here.
+*/
+
+.panel 
+{ 
+	background: darken(#FFFFFF, 5%);
+	border: solid 1px darken(#FFFFFF, 10%);
+	margin: 22px 0 44px 0;
+	padding: 20px;
+
+	> :first-child
+	{ 
+		margin-top: 0;
+	}
+
+	> :last-child
+	{
+		margin-bottom: 0; 
+	}
+
+	&.callout 
+	{ 
+		background: $primary-color; 
+		color: #fff; 
+		border-color: darken($primary-color, 10%); 
+		@include box-shadow(inset 0px 1px 0px rgba(255,255,255,0.5));
+
+	  	a 
+	  	{
+	  		color: #fff; 
+	  	}
+	  
+	  	.button
+	  	{ 
+	  		background: #FFFFFF; 
+	  		border: none; 
+	  		color: $primary-color;
+	  		@include text-shadow(none);
+
+		    &:hover
+		    {
+		    	background: rgba(255,255,255,0.8); 
+		    }
+	  	}
+	}
+
+	&.radius 
+	{
+		@include border-radius($button-radius);
+	}
+}
+
+.panel
+{
+	p 
+	{
+		font-size: ms(1);
+		line-height: 1.4;
+	}
+}

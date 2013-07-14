@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<rss version="2.0">
+<channel>
+  <title>DavidTucker.net Articles</title>
+  <link>http://www.davidtucker.net/</link>
+  <description>{{ tagline }}</description>
+  {% set articles = contentHelpers.getSortedContentFolder("articles",contents) %}
+  {% for article in articles %}
+  {% set permalink = url + article.url %}
+  <item>
+    <title>{{ article.title }}</title>
+    <author>{{ author }}</author>
+    <link>{{ permalink }}</link>
+    <guid isPermaLink="true">{{ permalink }}</guid>
+    <pubDate>{{ article.rfc822date }}</pubDate>
+    <description><![CDATA[ {{ article.getHtml(url) }} ]]></description>
+  </item>
+  {% endfor %}
+</channel>
+</rss>

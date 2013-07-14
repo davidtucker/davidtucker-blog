@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block canonical %}{{ url }}{{ page.url }}{% endblock %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block meta %}
+		{{ super() }}
+		{% if page.metadata.keywords %}<meta name="keywords" content="{{ page.metadata.keywords }}">{% endif %}
+{% endblock %}
+{% block content %}
+		<div class="row">
+			<div class="twelve columns">
+				<article>
+					<h1>{{ page.title }}</h1>
+					<div class="subtitle">{{ page.metadata.subtitle }}</div>
+					{{ page.html }}
+				</article>
+			</div>
+		</div>
+		<section class="featureBar darkGrey">
+			<div class="row">
+				<div class="twelve columns">
+					<h2 class="light">Powered By</h2>
+				</div>
+			</div>
+			<div class="row">
+				<ul class="small-block-grid-1 large-block-grid-4">
+				  <li><a href="http://jnordberg.github.com/wintersmith/" target="_blank" class="list-icon four-row wintersmith"></a></li>
+				  <li><a href="http://nodejs.org/" target="_blank" class="list-icon four-row nodejs"></a></li>
+				  <li><a href="http://foundation.zurb.com/" target="_blank" class="list-icon four-row foundation3"></a></li>
+				  <li><a href="http://nunjucks.jlongster.com/" target="_blank" class="list-icon four-row nunjucks"></a></li>
+				</ul>
+			</div>
+			<div class="row">
+				<ul class="small-block-grid-2 large-block-grid-6">
+				  <li><a href="http://en.wikipedia.org/wiki/HTML5" target="_blank" class="list-icon six-row pb-html5"></a></li>
+				  <li><a href="https://github.com/" target="_blank" class="list-icon six-row pb-github"></a></li>
+				  <li><a href="http://sass-lang.com/" target="_blank" class="list-icon six-row pb-sass"></a></li>
+				  <li><a href="http://aws.amazon.com/" target="_blank" class="list-icon six-row pb-amazonaws"></a></li>
+				  <li><a href="http://jquery.com/" target="_blank" class="list-icon six-row pb-jquery"></a></li>
+				  <li><a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets#CSS_3" target="_blank" class="list-icon six-row pb-css3"></a></li>
+				</ul>
+			</div>
+		</section>
+{% endblock %}

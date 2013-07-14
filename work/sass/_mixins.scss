@@ -1,0 +1,54 @@
+@mixin button($baseColor, $radius) 
+{
+	@include border-radius($radius);
+	@include single-transition(background-color, .15s, ease-in-out);
+	width: auto;
+	cursor: pointer; 
+	display: inline-block;
+	background-color: #CCC;
+	color: $baseColor;
+	padding: 10px 20px;
+	border: 1px solid #707070; 
+	font-family: $headerFontFamily;
+	font-weight: 200;
+	margin-bottom: 25px;
+	
+	&:hover
+	{
+		color: #707070;
+		background-color: #AAA;
+	}
+
+	em 
+	{
+		font-style: normal;
+		font-weight: 700;
+	}
+}
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: 767px) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: $break-small + 1) { @content; }
+  }
+  @else {
+    @media only screen and (min-width: 768px) { @content; }
+  }
+}
+
+@mixin rotate($rotation)
+{
+	-webkit-transform: rotate($rotation);
+    -moz-transform: rotate($rotation);
+    -ms-transform: rotate($rotation);
+    -o-transform: rotate($rotation);
+    transform: rotate($rotation);
+}
+
+@mixin opacity($opacity)
+{
+	opacity: $opacity;
+    filter: alpha(opacity = $opacity * 100);
+}
