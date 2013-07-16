@@ -15,7 +15,6 @@ module.exports = function(env, callback) {
 	};
 
 	env.helpers.sequenceFromString = function (initialString) {
-		console.log("HTML - SEQ FROM STRING");
 		var output;
 		var separator = ",";
 		output = initialString.split(separator);
@@ -40,10 +39,8 @@ module.exports = function(env, callback) {
 	};
 
 	env.helpers.getSitemapElements = function(contents) {
-		console.log("GET SME");
 		basedir = process.cwd() + "/contents/";
 		var elements = env.helpers.getAllPages(contents);
-		console.log(elements);
 		return elements;
 	};
 
@@ -80,14 +77,11 @@ module.exports = function(env, callback) {
 	};
 
 	var isSitemapFile = function(currentItem) {
-		console.dir(currentItem);
 		var name = currentItem.filepath.relative;
-		console.log("Is Sitemap File: " + name);
 		return isFilenameSitemapFile(name);
 	};
 
 	var isFilenameSitemapFile = function(filename) {
-		console.log("Match Filename: " + filename);
 		var fileNameRegExp = new RegExp("[A-Za-z0-9_-]*\.(md|json){1}$");
 		return filename.match(fileNameRegExp);
 	};
@@ -105,15 +99,11 @@ module.exports = function(env, callback) {
 		var stats = fs.statSync(fileObj.__filename);
 		output.lastModifiedTime = stats.mtime;
 
-		console.dir(fileObj.metadata);
-
 		if(fileObj.metadata.hasOwnProperty("priority")) {
-			console.log("Priority");
 			output.priority = fileObj.metadata.priority;
 		}
 
 		if(fileObj.metadata.hasOwnProperty("changefreq")) {
-			console.log("Change Freq");
 			output.changefreq = fileObj.metadata.changefreq;
 		}
 
