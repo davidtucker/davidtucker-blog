@@ -5,7 +5,7 @@
 		{{ super() }}
 		{% if page.metadata.keywords %}<meta name="keywords" content="{{ page.metadata.keywords }}">{% endif %}
 		{% if page.metadata.ogimage %}
-		{% set ogImageAbsolutePath = contentHelpers.getPathToLocalAssetWithFilename(page, page.metadata.ogimage) %}
+		{% set ogImageAbsolutePath = env.helpers.getPathToLocalAssetWithFilename(page, page.metadata.ogimage) %}
 		<meta property="og:image" content="{{ url }}{{ ogImageAbsolutePath }}">
 		{% else %}
 		<meta property="og:image" content="{{ url }}{{ defaultOGImage }}">

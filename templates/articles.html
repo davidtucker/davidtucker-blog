@@ -9,10 +9,11 @@
 		<div class="row">
 			<div class="twelve columns">
 				<ul class="article-list">
-					{% set articles = contentHelpers.getSortedContentFolder("articles",contents) %}
+					{% set articles = env.helpers.getSortedContentFolder("articles",contents) %}
   					{% for article in articles %}
-  					{% set featureImage = contentHelpers.getPathToLocalAssetWithFilename(article, article.metadata.feature_image) %}
+  					{% set featureImage = env.helpers.getPathToLocalAssetWithFilename(article, article.metadata.feature_image) %}
 					<li>
+						{{ env.helpers.contentDir('Article', article) }}
 						<h3 class="articleTitle"><a href="{{ article.url }}">{{ article.title }}</a></h3>
 						<p class="dateTime">Posted on <span class="postDate">{{ moment(article.date).format(dateDescriptionFormat) }}</span></p>
 						{% if article.metadata.short_description %}

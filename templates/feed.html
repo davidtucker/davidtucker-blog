@@ -4,7 +4,7 @@
   <title>DavidTucker.net Articles</title>
   <link>http://www.davidtucker.net/</link>
   <description>{{ tagline }}</description>
-  {% set articles = contentHelpers.getSortedContentFolder("articles",contents) %}
+  {% set articles = env.helpers.getSortedContentFolder("articles",contents) %}
   {% for article in articles %}
   {% set permalink = url + article.url %}
   <item>
