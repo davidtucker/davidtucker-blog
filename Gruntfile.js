@@ -89,6 +89,15 @@ module.exports = function(grunt) {
       previewSite: {
         command: 'wintersmith preview --config ./config-preview.json',
       },
+      setStagingRobotsFile: {
+        command: [
+          'rm ./build/robots.txt',
+          'mv ./build/staging-robots.txt ./build/robots.txt'
+        ].join('&&')
+      },
+      setProductionRobotsFile: {
+        command: 'rm ./build/staging-robots.txt'
+      },
       tagRelease: {
         command: 'git tag -a v' + getShortDateString() + ' -m "Production release on' + getLongDateString() + '"'
       }
@@ -177,8 +186,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('prebuild', ['clean:build']);
   grunt.registerTask('postbuild', ['lineremover:html', 'imagemin:dist']);
-  grunt.registerTask('buildStaging', ['prebuild', 'shell:buildStaging', 'postbuild']);
-  grunt.registerTask('buildProduction', ['prebuild', 'shell:buildProduction', 'postbuild']);
+  grunt.registerTask('buildStaging', ['prebuild', 'shell:buildStaging', 'postbuild', 'shell:setStagingRobotsFile']);
+  grunt.registerTask('buildProduction', ['prebuild', 'shell:buildProduction', 'postbuild', 'shell:setProductionRobotsFile']);
   grunt.registerTask('deployStaging', ['buildStaging','s3:staging']);
   grunt.registerTask('deployProduction', ['buildProduction','s3:production','shell:tagRelease']);
 
