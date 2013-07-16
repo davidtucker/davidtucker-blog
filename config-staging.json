@@ -1,6 +1,6 @@
 {
   "locals": {
-    "url": "http://localhost:8080",
+    "url": "http://livestaging.davidtucker.net",
     "author": "David Tucker",
     "siteName": "The Site of David Tucker",
     "tagline": "David Tucker is a software architect, digital strategist, speaker, and writer.",
@@ -10,17 +10,17 @@
   "templates": "./templates",
   "contents": "./contents",
   "output": "./build",
-  "require": [
-  	"moment",
-    "./node_modules/contentHelpers/contentHelpers"
-  ],
+  "require": {
+    "moment": "moment"
+  },
   "plugins": [
-  	"wintersmith-nunjucks"
+    "wintersmith-nunjucks",
+    "./plugins/contentHelpers.js"
   ],
   "ignore": [
-  	"**/config.rb",
-  	"**/sass",
-  	"**/.sass-cache",
+    "**/config.rb",
+    "**/sass",
+    "**/.sass-cache",
     "**/.DS_Store"
   ]
 }
