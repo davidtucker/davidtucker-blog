@@ -1,3 +1,4 @@
+---
 title: About David Tucker
 subtitle: Software developer and architect, author, speaker, and digital strategist
 author: David tucker
@@ -6,6 +7,7 @@ template: about.html
 keywords: david tucker,developer,architect,author,speaker
 changefreq: monthly
 priority: 0.7
+---
 
 David Tucker is a software architect and developer as well as a speaker and writer within the industry.  David currently serves as the Director of Research and Development and a Principal Architect for <a href="http://www.universalmind.com/" target="_blank">Universal Mind</a>.  In addition, David currently manages the iOS practice there.
 

@@ -1,3 +1,4 @@
+---
 title: Creating and Debugging Xcode 4 Actions
 subtitle: Using pre and post event behaviors to automate some of your manual tasks with your OS X and iOS applications
 short_description: Xcode 4 allows us to perform many actions before or after most of its key actions.  This powerful behavior can enable a good deal of custom functionality to aid your workflow.  This article goes through how to create and debug these actions and what actions could be helpful.
@@ -7,6 +8,7 @@ template: post.html
 keywords: xcode,ios,osx,schemes,actions
 ogimage: xcodeEditScheme.jpg
 feature_image: featured.jpg
+---
 
 One of the detriments of working with Xcode is that some tasks might not seem immediately automatable.  However, in many cases, this is simply not true.
 

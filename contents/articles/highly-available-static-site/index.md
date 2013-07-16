@@ -1,3 +1,4 @@
+---
 title: Creating a Highly Available Static Site
 subtitle: Leveraging multiple cloud infrastructures to prevent a single point of failure for web content delivery
 short_description: With a move to static sites, many individuals and organizations are enjoying the scalability of cloud based hosting solutions such as Amazon S3 and Rackspace Cloud Files for their web content.  However, in the event of an outage your site goes down completely.  By leveraging these services together along with an external DNS host, you can create a site that barely skips a beat when one of the cloud providers goes down.
@@ -7,6 +8,7 @@ template: post.html
 keywords: amazon s3, s3, rackspace cloud files, ha, high availability, static site
 tweet_id: 
 feature_image: 
+---
 
 When I began thinking about how I would host my personal website once I moved to a static site, I knew I would be leveraging a cloud-based solutions.  Because of my experience with Amazon Web Services, I assumed that I would probably lean towards S3 as an option.  To be honest, I knew that for me if Amazon S3 goes down for a period of time, it wouldn't affect me a great deal.  If my site is down for a day, it really isn't a big deal to me.  However, for many of the clients that I work for at Universal Mind, I knew that wasn't the case.  I wanted to investigate the best way for organizations to leverage the benefits of static content and embrace high-availability which is so much easier to attain with it.
 

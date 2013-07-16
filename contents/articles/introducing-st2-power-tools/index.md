@@ -1,3 +1,4 @@
+---
 title: Introducing the ST2 Power Tools
 subtitle: A solution for starting Sencha Touch 2 projects without all of the annoyances
 short_description: The iPad table project from Universal Mind is an example of where multi-device communication will go in the future.  It utilizes 15 iPads that know how to talk to one another in a way that creates one seamless experience.  In this article, David Tucker, Director of Research and Development for Technology at Universal Mind walks through its development.
@@ -7,6 +8,7 @@ template: post.html
 keywords: ios,ipad,ipad table,universal mind,research
 tweet_id: 291302742520123392
 feature_image: featured.jpg
+---
 
 I’ve spent the last few weeks working with Sencha Touch 2 alongside my traditional iOS development.  I’ll have a lot to share coming up about Sencha Touch, but that will be in separate blog posts.  I did notice however, that there were some ways that developers could become more productive when working with SDK.  This led to the creation of a new open source project: ST2 Power Tools.
 

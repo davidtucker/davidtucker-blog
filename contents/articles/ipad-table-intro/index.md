@@ -1,3 +1,4 @@
+---
 title: The Universal Mind iPad Table
 subtitle: An introduction to the concept, how we crafted it into reality, and the future of multi-device communication
 short_description: The iPad table project from Universal Mind is an example of where multi-device communication will go in the future.  It utilizes 15 iPads that know how to talk to one another in a way that creates one seamless experience.  In this article, David Tucker, Director of Research and Development for Technology at Universal Mind walks through its development.
@@ -8,6 +9,7 @@ keywords: ios,ipad,ipad table,universal mind,research
 tweet_id: 291302742520123392
 ogimage: og.jpg
 feature_image: featured.jpg
+---
 
 In my role as the Director of Research and Development for Technology at Universal Mind, we consistently take on projects that help us determine where our industry is going and what the limits of technology are.  One area that is a continual focus for us is multi-device communication.  
 
