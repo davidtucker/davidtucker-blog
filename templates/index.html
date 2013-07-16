@@ -35,10 +35,10 @@
 				</div>
 			</div>
 			<div class="row">
-				{% set secondaryFeatures = contentHelpers.sequenceFromString(page.metadata.secondaryfeatures) %}
-				{% set numColumns = contentHelpers.numColumnsStringForArray(secondaryFeatures) %}
+				{% set secondaryFeatures = env.helpers.sequenceFromString(page.metadata.secondaryfeatures) %}
+				{% set numColumns = env.helpers.numColumnsStringForArray(secondaryFeatures) %}
   				{% for feature in secondaryFeatures %}
-  				{% set article = contentHelpers.getContentItemByNameFromContentFolder(contents, "articles", feature) %}
+  				{% set article = env.helpers.getContentItemByNameFromContentFolder(contents, "articles", feature) %}
 				<div class="large-{{ numColumns }} small-12 columns blogTeaser">
 					<h3 class="articleTitle"><a href="{{ article.url }}">{{ article.title }}</a></h3>
 					<p class="dateTime">{{ moment(article.date).format(dateDescriptionFormat) }}</p>
@@ -55,7 +55,7 @@
 			</div>
 			<div class="row hide-for-small">
 				{% for feature in secondaryFeatures %}
-  				{% set article = contentHelpers.getContentItemByNameFromContentFolder(contents, "articles", feature) %}
+  				{% set article = env.helpers.getContentItemByNameFromContentFolder(contents, "articles", feature) %}
 				<div class="large-{{ numColumns }} small-12 columns blogTeaser">
 					<div class="readMore">
 						<a href="{{ article.url }}" class="mono button accent">Read More</a>
@@ -64,7 +64,7 @@
 				{% endfor %}
 			</div>
 		</section>
-
+	
 		<section class="darkGrey featureBar around-web">
 			<div class="row">
 				<div class="small-12 columns">

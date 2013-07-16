@@ -10,12 +10,12 @@
   "templates": "./templates",
   "contents": "./contents",
   "output": "./build",
-  "require": [
-  	"moment",
-    "./node_modules/contentHelpers/contentHelpers"
-  ],
+  "require": {
+  	"moment": "moment"
+  },
   "plugins": [
-  	"wintersmith-nunjucks"
+  	"wintersmith-nunjucks",
+    "./plugins/contentHelpers.js"
   ],
   "ignore": [
   	"**/config.rb",

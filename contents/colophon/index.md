@@ -1,3 +1,4 @@
+---
 title: Colophon
 subtitle: How this site was created, what tools it uses, and how to access the source code
 author: David Tucker
@@ -6,6 +7,7 @@ template: colophon.html
 keywords: copyright,usage,policy,license
 changefreq: monthly
 priority: 0.5
+---
 
 This site was built on [Wintersmith](http://jnordberg.github.com/wintersmith/), a NodeJS static site generator created by [Johan Nordberg](https://github.com/jnordberg).  It uses [Nunjucks](http://nunjucks.jlongster.com/) for templating with the [wintersmith-nunjucks](https://github.com/jbuck/wintersmith-nunjucks) plugin created by [Jon Buckley](https://github.com/jbuck).  The site uses sematically-accurate HTML5 and CSS3 styling.
 

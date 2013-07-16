@@ -23,7 +23,6 @@ var preventDeepLinkingErrors = function() {
 	}
 };
 
-
 $(function() {
 	determineIfBrowserIsSupported();
 	preventDeepLinkingErrors();

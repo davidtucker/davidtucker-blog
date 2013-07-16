@@ -1,3 +1,4 @@
+---
 title: Curriculum Vitae
 subtitle: A collection of the articles I've written, conferences I've spoken at, the publications I've authored in recent years, and the awards I've received for my work
 author: David Tucker
@@ -6,6 +7,7 @@ template: page.html
 keywords: curriculum vitae,cv,writing,speaking,awards,publications
 changefreq: monthly
 priority: 0.4
+---
 
 In addition to my normal role at <a href="http://www.universalmind.com/" target="_blank">Universal Mind</a>, I enjoy the opportunity to provide perspective on the overall enterprise and mobile landscape through [writing](#writing) as well as [speaking](#speaking) at industry events.  I also have worked with both O'Reilly and Lynda.com to create a few [publications](#publications).  In addition, I regularly work with an amazing team at Universal Mind, and many of our projects have won [awards and recognition](#awards).
 

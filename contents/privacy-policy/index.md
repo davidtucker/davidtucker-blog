@@ -1,3 +1,4 @@
+---
 title: Privacy Policy
 subtitle: What we do with any information collected on this site
 author: David Tucker
@@ -6,6 +7,7 @@ template: page.html
 keywords: copyright,usage,policy,terms of service
 changefreq: yearly
 priority: 0.2
+---
 
 Your privacy is very important to us. Accordingly, we have developed this Policy in order for you to understand how we collect, use, communicate and disclose and make use of personal information. The following outlines our privacy policy.
 
