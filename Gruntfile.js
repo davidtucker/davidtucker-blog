@@ -181,6 +181,14 @@ module.exports = function(grunt) {
           'build/css/normalize.css' ],
         dest: 'build/**/*.html',
       }
+    },
+    cssmin: {
+      production: {
+        expand: true,
+        cwd: 'build/css',
+        src: ['*.css'],
+        dest: 'build/css',
+      }
     }
   });
 
