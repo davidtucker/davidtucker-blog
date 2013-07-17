@@ -8,7 +8,7 @@ module.exports = function(grunt) {
   };
 
   var getShortDateString = function() {
-    return moment().format('YYYY-MM-DDTHH:mm');
+    return moment().format('YYYY-MM-DDTHHmm');
   };
   
   grunt.initConfig({
