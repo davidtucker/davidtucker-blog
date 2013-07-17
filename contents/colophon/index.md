@@ -11,7 +11,7 @@ priority: 0.5
 
 This site was built on [Wintersmith](http://jnordberg.github.com/wintersmith/), a NodeJS static site generator created by [Johan Nordberg](https://github.com/jnordberg).  It uses [Nunjucks](http://nunjucks.jlongster.com/) for templating with the [wintersmith-nunjucks](https://github.com/jbuck/wintersmith-nunjucks) plugin created by [Jon Buckley](https://github.com/jbuck).  The site uses sematically-accurate HTML5 and CSS3 styling.
 
-The site's responsive grid is based on [Foundation 4](http://foundation.zurb.com/) by [Zurb](http://zurb.com/) (which in turn uses [SASS](http://sass-lang.com/)).  There are many parts of foundation that are not used, but I did take advantage of the grid, modular-scale for typography, and provided mixins. 
+The site's responsive grid is based on [Foundation 4](http://foundation.zurb.com/) by [Zurb](http://zurb.com/) (which in turn uses [SASS](http://sass-lang.com/)).  There are many parts of foundation that are not used, but I did take advantage of the grid and some provided mixins. 
 
 ## Typography
 
@@ -27,8 +27,8 @@ For testing, I utilized <a href="http://www.browserstack.com/" target="_blank">B
 
 ## Hosting & Deployment
 
-The site is currently hosted on Amazon S3.  For more information on how to host a static site using Amazon S3, refer to my post titled [Deploying Static Sites to Amazon S3](http://www.cnn.com/).  I currently use a custom shell script to handle all content preparation (minification, formatting, etc...) and deployment to Amazon S3.  I am investigating switching to [Grunt](http://gruntjs.com/) for an upcoming release.
+The site is currently hosted on Amazon S3.  For more information on how to host a static site using Amazon S3, refer to my post titled [Deploying Static Sites to Amazon S3](http://www.cnn.com/).  I currently use a custom shell script to handle all content preparation (minification, formatting, etc...) and deployment to Amazon S3.  I use [Grunt](http://gruntjs.com/) to handle all of my build and deployment process.  You can check out my [Gruntfile.js](https://github.com/davidtucker/davidtucker-blog/blob/develop/Gruntfile.js) to see how I handle these items.
 
 ## Source Code
 
-I have provided the source code for this site on Github as both an example of my work as well as a tool for other developers looking to create a similar site using Wintersmith.  It is released under a BSD license, which means you must attribute me if you choose to reuse elements from my source code.  If you wish to resue some elements without attribution, please [contact me](/about/#contact).
+I have provided the <a href="https://github.com/davidtucker/davidtucker-blog" target="_blank">source code for this site</a> on Github as both an example of my work as well as a tool for other developers looking to create a similar site using Wintersmith.  It is released under a BSD license, which means you must attribute me if you choose to reuse elements from my source code.  If you wish to resue some elements without attribution, please [contact me](/about/#contact).
