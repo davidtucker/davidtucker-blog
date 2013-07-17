@@ -116,7 +116,7 @@ module.exports = function(grunt) {
         files: [
           'work/js/**/*.js'
         ],
-        tasks: ['jshint:work', 'jsCompile']
+        tasks: ['jshint:work', 'browserify2']
       },
       sass: {
         files: [
@@ -222,22 +222,17 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('prebuild', [
-    'clean:build'
-  ]);
-
-  grunt.registerTask('preProduction', [
+    'clean:build',
+    'browserify2',
     'compass:dist'
-  ]);
-
-  grunt.registerTask('postProduction', [
-    'uglify:production',
-    'hashres:production', 
-    'cssmin:production'
   ]);
 
   grunt.registerTask('postbuild', [
     'lineremover:html',
-    'imagemin:dist'
+    'imagemin:dist',
+    'uglify:production',
+    'hashres:production', 
+    'cssmin:production'
   ]);
 
   grunt.registerTask('buildStaging', [
@@ -248,11 +243,9 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('buildProduction', [
-    'prebuild', 
-    'preProduction', 
+    'prebuild',  
     'shell:buildProduction', 
-    'postbuild', 
-    'postProduction', 
+    'postbuild',  
     'shell:setProductionRobotsFile'
   ]);
 
