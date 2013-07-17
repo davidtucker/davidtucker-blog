@@ -165,6 +165,22 @@ module.exports = function(grunt) {
           }
         ]
       }
+    },
+    hashres: {
+      options: {
+        encoding: 'utf8',
+        fileNameFormat: '${name}.${hash}.cache.${ext}',
+        renameFiles: true
+      },
+      production: {
+        options: {
+        },
+        src: [
+          'build/js/app.min.js',
+          'build/css/app.css',
+          'build/css/normalize.css' ],
+        dest: 'build/**/*.html',
+      }
     }
   });
 

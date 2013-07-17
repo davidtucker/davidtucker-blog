@@ -22,6 +22,7 @@
     "grunt-contrib-clean": "~0.4.1",
     "grunt-line-remover": "0.0.2",
     "grunt-contrib-imagemin": "~0.1.4",
-    "underscore": "~1.5.1"
+    "underscore": "~1.5.1",
+    "grunt-hashres": "~0.3.2",
   }
 }
