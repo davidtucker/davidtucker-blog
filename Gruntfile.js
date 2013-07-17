@@ -17,7 +17,9 @@ module.exports = function(grunt) {
 
     },
     clean: {
-      build: [ 'build' ]
+      build: [ 
+        'build' 
+      ]
     },
     compass: {
       dist: {
@@ -77,7 +79,7 @@ module.exports = function(grunt) {
     jshint: {
       work: [
         'work/js/*.js',
-        'Gruntfile.js']
+        'Gruntfile.js' ]
     },
     shell: {
       buildProduction: {
@@ -99,13 +101,13 @@ module.exports = function(grunt) {
         command: 'rm ./build/staging-robots.txt'
       },
       tagRelease: {
-        command: 'git tag -a v' + getShortDateString() + ' -m "Production release on' + getLongDateString() + '"'
+        command: 'git tag -a "v' + getShortDateString() + '" -m "Production release on' + getLongDateString() + '"'
       }
     },
     uglify: {
-      compile: {
+      production: {
         files: {
-          'contents/js/app.min.js': 'work/js/application.js'
+          'build/js/app.min.js': 'build/js/app.min.js'
         }
       }
     },
@@ -192,6 +194,8 @@ module.exports = function(grunt) {
     }
   });
 
+  // Load NPM Tasks
+
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -204,15 +208,62 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-line-remover');
   grunt.loadNpmTasks('grunt-s3');
+  grunt.loadNpmTasks('grunt-hashres');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-  grunt.registerTask('dev', ['watch']);
-  grunt.registerTask('preview', ['shell:previewSite']);
+  // Grunt Tasks
 
-  grunt.registerTask('prebuild', ['clean:build']);
-  grunt.registerTask('postbuild', ['lineremover:html', 'imagemin:dist']);
-  grunt.registerTask('buildStaging', ['prebuild', 'shell:buildStaging', 'postbuild', 'shell:setStagingRobotsFile']);
-  grunt.registerTask('buildProduction', ['prebuild', 'shell:buildProduction', 'postbuild', 'shell:setProductionRobotsFile']);
-  grunt.registerTask('deployStaging', ['buildStaging','s3:staging']);
-  grunt.registerTask('deployProduction', ['buildProduction','s3:production','shell:tagRelease']);
+  grunt.registerTask('dev', [
+    'watch'
+  ]);
+
+  grunt.registerTask('preview', [
+    'shell:previewSite'
+  ]);
+
+  grunt.registerTask('prebuild', [
+    'clean:build'
+  ]);
+
+  grunt.registerTask('preProduction', [
+    'compass:dist'
+  ]);
+
+  grunt.registerTask('postProduction', [
+    'uglify:production',
+    'hashres:production', 
+    'cssmin:production'
+  ]);
+
+  grunt.registerTask('postbuild', [
+    'lineremover:html',
+    'imagemin:dist'
+  ]);
+
+  grunt.registerTask('buildStaging', [
+    'prebuild',
+    'shell:buildStaging',
+    'postbuild',
+    'shell:setStagingRobotsFile'
+  ]);
+
+  grunt.registerTask('buildProduction', [
+    'prebuild', 
+    'preProduction', 
+    'shell:buildProduction', 
+    'postbuild', 
+    'postProduction', 
+    'shell:setProductionRobotsFile'
+  ]);
+
+  grunt.registerTask('deployStaging', [
+    'buildStaging',
+    's3:staging'
+  ]);
+
+  grunt.registerTask('deployProduction', [
+    'buildProduction',
+    'shell:tagRelease'
+  ]);
 
 };
