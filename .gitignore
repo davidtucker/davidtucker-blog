@@ -2,3 +2,4 @@
 node_modules
 build
 app.min.js
+app.css
