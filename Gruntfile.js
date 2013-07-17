@@ -17,8 +17,8 @@ module.exports = function(grunt) {
 
     },
     clean: {
-      build: [ 
-        'build' 
+      build: [
+        'build'
       ]
     },
     compass: {
@@ -231,7 +231,7 @@ module.exports = function(grunt) {
     'lineremover:html',
     'imagemin:dist',
     'uglify:production',
-    'hashres:production', 
+    'hashres:production',
     'cssmin:production'
   ]);
 
@@ -243,9 +243,9 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('buildProduction', [
-    'prebuild',  
-    'shell:buildProduction', 
-    'postbuild',  
+    'prebuild',
+    'shell:buildProduction',
+    'postbuild',
     'shell:setProductionRobotsFile'
   ]);
 
