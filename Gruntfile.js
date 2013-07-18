@@ -304,7 +304,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deployProduction', [
     'buildProduction',
-    'shell:tagRelease'
+    'release'
   ]);
 
 };
