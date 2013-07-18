@@ -1,15 +1,7 @@
 var shim = require('browserify-shim');
-var moment = require('moment');
+var helpers = require('./plugins/gruntHelpers');
 
 module.exports = function(grunt) {
-
-  var getLongDateString = function() {
-    return moment().format('MMMM Do YYYY, h:mm:ss a');
-  };
-
-  var getShortDateString = function() {
-    return moment().format('YYYY-MM-DDTHHmm');
-  };
   
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -101,7 +93,19 @@ module.exports = function(grunt) {
         command: 'rm ./build/staging-robots.txt'
       },
       tagRelease: {
-        command: 'git tag -a "v' + getShortDateString() + '" -m "Production release on' + getLongDateString() + '"'
+        command: 'git tag -a "v' + helpers.getCurrentVersion() + '" -m "Production release on' + helpers.getLongDateString() + '"'
+      },
+      mergeToMaster: {
+        command: [
+          'git checkout master',
+          'git merge --no-ff develop'
+        ].join('&&')
+      },
+      pushToOrigin: {
+        command: 'git push master origin'
+      },
+      returnToDevelop: {
+        command: 'git checkout develop'
       }
     },
     uglify: {
@@ -238,6 +242,18 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   // Grunt Tasks
+
+  grunt.registerTask('incrementBuildPatch', 
+    'Increment the patch build number', 
+    helpers.incrementBuildPatch);
+
+  grunt.registerTask('release', [
+    'incrementBuildPatch',
+    'shell:mergeToMaster',
+    'shell:tagRelease',
+    'shell:pushToOrigin',
+    'shell:returnToDevelop'
+  ]); 
 
   grunt.registerTask('dev', [
     'watch'
