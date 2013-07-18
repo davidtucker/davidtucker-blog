@@ -120,8 +120,11 @@ module.exports = function(grunt) {
       },
       sass: {
         files: [
-          'work/sass/**/*.scss'],
-        tasks: ['compass:dev']
+          'work/sass/**/*.scss'
+        ],
+        tasks: [
+          'compass:dev'
+        ]
       }
     },
     lineremover: {

@@ -1,6 +1,6 @@
 {
   "name": "david-tucker-site",
-  "version": "0.0.1",
+  "version": "0.0.2-1",
   "devDependencies": {
     "wintersmith-nunjucks": "~0.2.0",
     "moment": "~1.7.2",
