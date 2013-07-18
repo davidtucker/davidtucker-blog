@@ -95,6 +95,12 @@ module.exports = function(grunt) {
       tagRelease: {
         command: 'git tag -a "v' + helpers.getCurrentVersion() + '" -m "Production release on' + helpers.getLongDateString() + '"'
       },
+      commitPackageJSON: {
+        command: [
+          'git add package.json',
+          'git commit -m "Updating version number in package.json file"'
+        ].join('&&')
+      },
       mergeToMaster: {
         command: [
           'git checkout master',
@@ -102,7 +108,7 @@ module.exports = function(grunt) {
         ].join('&&')
       },
       pushToOrigin: {
-        command: 'git push master origin'
+        command: 'git push origin master'
       },
       returnToDevelop: {
         command: 'git checkout develop'
@@ -249,6 +255,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('release', [
     'incrementBuildPatch',
+    'shell:commitPackageJSON',
     'shell:mergeToMaster',
     'shell:tagRelease',
     'shell:pushToOrigin',
