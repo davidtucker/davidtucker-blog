@@ -174,7 +174,7 @@ module.exports = function(grunt) {
         fileNameFormat: '${name}.${hash}.cache.${ext}',
         renameFiles: true
       },
-      production: {
+      css: {
         options: {
         },
         src: [
@@ -182,6 +182,29 @@ module.exports = function(grunt) {
           'build/css/app.css',
           'build/css/normalize.css' ],
         dest: 'build/**/*.html',
+      },
+      js: {
+        options: {
+        },
+        src: [
+          'build/js/app.min.js',
+          'build/css/app.css',
+          'build/css/normalize.css' ],
+        dest: 'build/**/*.html',
+      },
+      images: {
+        options: {
+        },
+        src: [
+          'build/**/*.png',
+          'build/**/*.jpg'
+        ],
+        dest: [
+          'build/**/*.html',
+          'build/**/*.js',
+          'build/**/*.css',
+          'build/**/*.md',
+        ]
       }
     },
     cssmin: {
@@ -217,6 +240,12 @@ module.exports = function(grunt) {
     'watch'
   ]);
 
+  grunt.registerTask('cacheBust', [
+    'hashres:images',
+    'hashres:css',
+    'hashres:js'
+  ]);
+
   grunt.registerTask('preview', [
     'shell:previewSite'
   ]);
@@ -231,7 +260,7 @@ module.exports = function(grunt) {
     'lineremover:html',
     'imagemin:dist',
     'uglify:production',
-    'hashres:production',
+    'cacheBust',
     'cssmin:production'
   ]);
 
