@@ -1,0 +1,394 @@
+//-------------------------------------------------
+// Styles
+//-------------------------------------------------
+
+article ul li
+{
+	font-size: 1.25em;
+	margin-left: 30px;
+	padding-bottom: 10px;
+	list-style: none;
+
+	&:before
+	{
+		content: "\00BB \0020";
+		font-weight: bold;
+		color: darken($dt_color_accent, 15%);
+	}
+}
+
+article ol li
+{
+	font-size: 1.25em;
+	margin-left: 30px;
+	padding-bottom: 0px;
+}
+
+
+
+.inline-list
+{
+	float: left;
+	list-style: none;
+	display: inline;
+	width: 100%;
+
+	& li
+	{
+		display: inline;
+	}
+}
+
+.align-left
+{
+	text-align: left;
+}
+
+.align-right
+{
+	text-align: right;
+}
+
+.align-center
+{
+	text-align: center;
+}
+
+.column-image
+{
+	img 
+	{
+		width: 70px;
+	}
+}
+
+.button
+{
+	width: auto;
+	cursor: pointer; 
+	display: inline-block;
+	background-color: #CCC;
+	color: #707070;
+	padding: 10px 20px;
+	@include border-radius(3px);
+	font-family: $header-font-family;
+	font-weight: 200;
+	@include single-transition(background-color, .15s, ease-in-out);
+
+	&:hover
+	{
+		color: #707070;
+		background-color: #AAA;
+	}
+
+	em 
+	{
+		font-style: normal;
+		font-weight: 700;
+	}
+}
+
+.accent 
+{
+	background-color: $dt_color_accent;
+	color: #FFFFFF;
+}
+
+.accent:hover
+{
+	background-color: darken($dt_color_accent, 15%);
+	color: #FFFFFF;
+}
+
+.bottom-button
+{
+	margin-bottom: 18px;
+}
+
+nav .inline-list li
+{
+	font-family: $header-font-family;
+	margin-left: 8px;
+	font-size: 15px;//ms(1);
+
+	&:before
+	{
+		content: "//";
+		color: #8C8C8C;
+		margin-right: 10px;
+	}
+
+	&:first-child
+	{
+		margin-left: 0px;
+	}
+	
+	&:first-child:before
+	{
+		content: "";
+	}
+
+	a
+	{
+		color: #FFFFFF;
+
+		&:hover
+		{
+			text-decoration: underline;
+		}
+	}
+}
+
+.dateTime
+{
+	font-family: $header-font-family;
+	font-weight: 200;
+	font-style: italic;
+	color: #999;
+}
+
+.featureBar
+{
+	padding: 20px 0 20px 0;
+	width: 100%;
+
+	h2
+	{
+		padding-top: 0px;
+		margin-top: 0px;
+	}
+}
+
+.lightGrey
+{
+	background-color: #F2F2F2;
+}
+
+.darkGrey
+{
+	background-color: #707070;
+	color: #FFFFFF;
+
+	p 
+	{
+		font-size: ms(1);
+		line-height: 1.2;
+	}
+
+}
+
+.readMore
+{
+	width: 100%;
+	text-align: left;
+}
+
+.subtitle
+{
+	color: #AEAEAE;
+	font-style: italic;
+	font-size: 1.25em;
+	padding: 3% 0;
+
+	@media screen and (max-width: 767px) {
+		margin: 25px 0;
+	}
+}
+
+article
+{
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+
+.highlight-box
+{
+	background-color: #F2F2F2;
+	padding: 10px;
+	border: 1px solid #D7D7D7;
+	margin: 1% auto;
+}
+
+.headshot
+{
+	width: 100px;
+	height: 100px;
+	border: 5px solid #FFF;
+	float: right;
+	margin-left: 20px;
+}
+
+ul.article-list
+{
+	list-style: none;
+	margin-top: 60px;
+
+	li
+	{
+		margin-bottom: 20px;
+		text-align: left;//center;
+		width: 100%;
+
+		.dateTime
+		{
+			font-size: 1em;
+		}
+
+		.postDate
+		{
+			color: #333;
+			font-weight: normal;
+		}
+
+		p
+		{
+			font-size: 1.2em;
+			width: 100%;
+			color: #444;
+		}
+
+		hr 
+		{
+			width: 40%;
+			margin: 25px auto;
+			color: #FF0000;
+		}
+
+		h3
+		{
+			font-size: 44px;
+			color: #000;
+
+			a 
+			{
+				color: #333;
+				text-decoration: none;
+				@include single-transition(color, .1s, ease-in-out);
+
+				&:hover
+				{
+					@include single-transition(color, .1s, ease-in-out);
+					color: #666;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+
+ul.error-article-list
+{
+	list-style: none;
+
+	li
+	{
+		text-align: center;
+		margin: 0 auto;
+		margin-bottom: 0px;
+
+		h1
+		{
+			margin: 0;
+			padding: 10px;
+		}
+
+		a
+		{
+			/*background-color: rgba(0, 0, 0, 0.1);*/
+			display: block;
+			font-family: $dt_header_light;
+			font-weight: 100;
+			color: darken($dt_color_accent, 15%);
+			@include single-transition(background-color, .15s, ease-in-out);
+			text-decoration: underline;
+
+			&:hover
+			{
+				color: darken($dt_color_accent, 25%);
+				text-decoration: underline;
+			}
+
+		}
+	}
+}
+
+.youtube-loader
+{
+	position: relative;
+}
+	
+.playButton
+{
+
+}
+
+li .name
+{
+
+}
+
+.darkGrey p.caption a, .darkGrey .pseudo-link
+{
+	text-decoration: none;
+	color: #FFFFFF;
+
+	&:hover
+	{
+		text-decoration: underline;
+	}
+}
+
+.pseudo-link
+{
+	cursor: pointer;
+}
+
+//--------------------------------------------------------
+// Old Browser Warning
+//--------------------------------------------------------
+
+#oldBrowser
+{
+	width: 100%;
+	background-color: #999999;
+	margin: 0;
+	padding: 0;
+	@include clearfix();
+
+	.warningContent
+	{
+		width: $row-width;
+		color: #FFFFFF;
+		margin: 0 auto;
+		font-size: ms(3);
+		font-family: $header-font-family;
+
+		a
+		{
+			color: #FFFFFF;
+			text-decoration: underline;
+		}
+
+		p
+		{
+			margin-bottom: 0px;
+			padding-bottom: 10px;
+		}
+
+		img
+		{
+			float: left;
+			padding-bottom: 10px;
+			padding-right: 20px;
+			padding-top: 10px;
+		}
+
+		h2
+		{
+			color: #FFFFFF;
+			margin-top: 0px;
+			padding-top: 10px;
+			text-transform: uppercase;
+		}
+	}
+}

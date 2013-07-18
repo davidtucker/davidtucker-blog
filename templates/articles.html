@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block canonical %}{{ url }}{{ page.url }}{% endblock %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block meta %}
+		{{ super() }}
+		{% if page.metadata.keywords %}<meta name="keywords" content="{{ page.metadata.keywords }}">{% endif %}
+{% endblock %}
+{% block content %}
+		<div class="row">
+			<div class="twelve columns">
+				<ul class="article-list">
+					{% set articles = env.helpers.getSortedContentFolder("articles",contents) %}
+  					{% for article in articles %}
+  					{% set featureImage = env.helpers.getPathToLocalAssetWithFilename(article, article.metadata.feature_image) %}
+					<li>
+						<h3 class="articleTitle"><a href="{{ article.url }}">{{ article.title }}</a></h3>
+						<p class="dateTime">Posted on <span class="postDate">{{ moment(article.date).format(dateDescriptionFormat) }}</span></p>
+						{% if article.metadata.short_description %}
+						<p>{{ article.metadata.short_description }}</p>
+						{% else %}
+						<p>{{ article.intro }}</p>
+						{% endif %}
+						<div class="readMore">
+							<a href="{{ article.url }}" class="mono button accent" style="margin-bottom: 25px;">Read More</a>
+						</div>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+{% endblock %}

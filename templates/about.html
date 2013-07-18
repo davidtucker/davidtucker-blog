@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block canonical %}{{ url }}{{ page.url }}{% endblock %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block meta %}
+		{{ super() }}
+		{% if page.metadata.keywords %}<meta name="keywords" content="{{ page.metadata.keywords }}">{% endif %}
+{% endblock %}
+{% block content %}
+		<div class="row">
+			<div class="twelve columns">
+				<article>
+					<figure class="fig_right hide-for-small">
+						<img src="/images/davidSpeaking.jpg" alt="David Tucker speaking at a conference">
+						<figcaption>Photo courtesy of <a href="#">Adam Chow</a></figcaption>
+					</figure>
+					<h1>About David Tucker</h1>
+					<div class="subtitle">{{ page.metadata.subtitle }}</div>
+					{{ page.html }}
+					<figure class="fig_right show-for-small">
+						<img src="/images/davidSpeaking.jpg" alt="David Tucker speaking at a conference">
+						<figcaption>Photo courtesy of <a href="#">Adam Chow</a></figcaption>
+					</figure>
+				</article>
+			</div>
+		</div>
+		<section class="featureBar darkGrey">
+			<div class="row">
+				<div class="twelve columns">
+					<h2 class="light">Writing</h2>
+				</div>
+			</div>
+			<div class="row">
+				<ul class="small-block-grid-2 large-block-grid-6">
+				  <li><div class="list-icon mashable"></div></li>
+				  <li><div class="list-icon oreilly"></div></li>
+				  <li><div class="list-icon appolicious"></div></li>
+				  <li><div class="list-icon inspire"></div></li>
+				  <li><div class="list-icon lyndadotcom"></div></li>
+				  <li><div class="list-icon adobedevcon"></div></li>
+				</ul>
+			</div>
+			<div class="row">
+				<div class="twelve columns">
+					<h2 class="light">Speaking</h2>
+				</div>
+			</div>
+			<div class="row">
+				<ul class="small-block-grid-1 large-block-grid-4">
+				  <li><div class="list-icon four-row adtech"></div></li>
+				  <li><div class="list-icon four-row interop"></div></li>
+				  <li><div class="list-icon four-row adobemax"></div></li>
+				  <li><div class="list-icon four-row mwdevcon"></div></li>
+				</ul>
+			</div>
+			<div class="row">
+				<ul class="small-block-grid-2 large-block-grid-6">
+				  <li><div class="list-icon six-row fitc"></div></li>
+				  <li><div class="list-icon six-row flashcamp"></div></li>
+				  <li><div class="list-icon six-row threesixtyflex"></div></li>
+				  <li><div class="list-icon six-row riaunleashed"></div></li>
+				  <li><div class="list-icon six-row flexcamp"></div></li>
+				  <li><div class="list-icon six-row cfunited"></div></li>
+				</ul>
+			</div>
+		</section>
+{% endblock %}

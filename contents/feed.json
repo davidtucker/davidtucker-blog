@@ -1,0 +1,5 @@
+{
+  "template": "feed.html",
+  "filename": "feed.xml",
+  "changefreq": "daily"
+}

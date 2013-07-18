@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block canonical %}{{ url }}{{ page.url }}{% endblock %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block content %}
+		<div class="row">
+			<div class="twelve columns align-center">
+				<h1>I'm sorry, but the page you requested <em>doesn't exist</em>.  Try one of these:</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="twelve columns">
+				<ul class="error-article-list">
+					<li><h1><a href="/about/">About David Tucker</a></h1></li>
+					<li><h1><a href="/articles/">The Blog</a></h1></li>
+					<li><h1><a href="/publications/">Publications</a></h1></li>
+					<li><h1><a href="/colophon/">About This Site</a></h1></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="twelve columns">
+				<h1>If you still don't see what you need,<br />feel free to <a href="/about/#contact">Contact Me</a>.</h1>
+			</div>
+		</div>
+{% endblock %}

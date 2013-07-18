@@ -1,0 +1,26 @@
+{
+  "locals": {
+    "url": "http://livestaging.davidtucker.net",
+    "author": "David Tucker",
+    "siteName": "The Site of David Tucker",
+    "tagline": "David Tucker is a software architect, digital strategist, speaker, and writer.",
+    "dateDescriptionFormat": "dddd, MMMM Do YYYY",
+    "defaultOGImage" : "/images/icons/siteIcon-144.png"
+  },
+  "templates": "./templates",
+  "contents": "./contents",
+  "output": "./build",
+  "require": {
+    "moment": "moment"
+  },
+  "plugins": [
+    "wintersmith-nunjucks",
+    "./plugins/contentHelpers.js"
+  ],
+  "ignore": [
+    "**/config.rb",
+    "**/sass",
+    "**/.sass-cache",
+    "**/.DS_Store"
+  ]
+}

@@ -1,0 +1,276 @@
+//-------------------------------------------------
+// Handling Font Loading
+//-------------------------------------------------
+
+h1, h2, h3, h4, h5, h6, p 
+{
+	visibility: hidden;
+	@include opacity(0.0);
+}
+
+.mac-fonts h1, .mac-fonts h2, .mac-fonts h3, .mac-fonts h4, .mac-fonts h5, .mac-fonts h6, .mac-fonts p 
+{
+	visibility: visible;
+	@include opacity(1.0);
+}
+
+.wf-loading h1, .wf-loading h2, .wf-loading h3, .wf-loading h4, .wf-loading h5, .wf-loading h6, .wf-loading p
+{
+	visibility: hidden;
+	@include opacity(0.0);
+}
+
+.wf-active h1, .wf-active h2, .wf-active h3, .wf-active h4, .wf-active h5, .wf-active h6, .wf-active p
+{
+	visibility: visible;
+	@include single-transition(opacity, .15s, ease-in-out);
+	@include opacity(1.0);
+}
+
+//-------------------------------------------------
+// Global Styles
+//-------------------------------------------------
+
+a
+{
+	color: darken($dt_color_accent, 15%);
+	text-decoration: none;
+
+	&:hover
+	{
+		color: darken($dt_color_accent, 30%);
+	}
+}
+
+p 
+{
+	margin-bottom: 1.25em;
+}
+
+h1
+{
+	padding: 5%;
+	color: #7C7C7C;
+	font-family: $dt_header_light;
+	font-weight: 100;
+	text-align: center;
+
+	@media screen and (max-width: 767px) {
+		font-size: ms(4);
+	}
+
+	em
+	{
+		font-weight: 800;
+		font-style: normal;
+	}
+
+	a
+	{
+		//text-decoration: underline;
+	}
+}
+
+h2
+{
+	font-size: 1.75em;
+	font-family: $dt_header_condensed;
+}
+
+h3
+{
+	color: #333333;
+	font-size: 1.25em;
+	font-weight: normal;
+	margin-top: 0px;
+	margin-bottom: 10px;
+}
+
+h4
+{
+	font-size: ms(1);
+	font-weight: normal;
+	color: #707070;
+	font-style: italic;
+}
+
+h3 a
+{
+	color: #7C7C7C;
+
+	&:hover
+	{
+		color: #6C6C6C;
+	}
+}
+
+section
+{
+	padding-bottom: 2%;
+}
+
+article h1
+{
+	text-align: left;
+	margin: 0;
+	padding: 0;
+	margin-top: 20px;
+	font-family: $dt_header_condensed;
+	font-weight: 700;
+	color: #333;
+}
+
+article h2
+{
+	margin-top: 30px;
+}
+
+article .small-caption
+{
+	margin: 3% 0;
+	margin-top: 4%;
+	text-transform: uppercase;
+	color: #AEAEAE;
+	font-family: $header-font-family;
+
+	@media screen and (max-width: 767px) {
+		margin: 15px 0;
+		margin-top: 25px;
+	}
+}
+
+article p
+{
+	font-size: 1.25em;
+	text-align: left;
+	line-height: 1.4;
+
+	@media screen and (max-width: 767px) {
+		font-size: ms(2);
+		text-align: left;
+		line-height: 1.1;
+	}
+}
+
+article blockquote
+{
+	/*border-left: 10px solid #EFEFEF;*/
+	padding-top: 0;
+	margin: 2px 0;
+	margin-left: 30px;
+	/*border-top: 1px solid #EFEFEF;
+	border-bottom: 1px solid #EFEFEF;*/
+	border-left: 1px solid $dt_color_accent;
+
+	@media screen and (max-width: 767px) {
+		margin-left: 0px;
+	}
+
+	p 
+	{
+		font-size: 1.25em;
+		font-style: italic;
+		line-height: 1.1;
+		color: #AEAEAE;
+		padding: 4px 0;
+	}
+}
+
+.panel p 
+{
+	font-family: $header-font-family;
+	font-weight: 200;
+}
+
+section
+{
+	h1
+	{
+		color: #999999;
+
+	}
+
+	h1,h2,h3,h4,h5,h6
+	{
+		@extend .ultraLite;
+	}
+
+	h2,h3,h4,h5,h6
+	{
+		text-transform: uppercase;
+	}
+
+	&.darkGrey h4
+	{
+		color: #FFFFFF;
+	}
+
+	.featureBar.darkGrey p
+	{
+		font-weight: 400;
+	}
+
+	h2
+	{
+		font-size: 2em;
+		text-transform: uppercase;
+
+		@include respond-to(handhelds)
+		{
+			font-size: 1.2em;
+		}
+	}
+
+	h2:before
+	{
+		content: "//";
+		color: $dt_color_accent;
+		padding-right: 10px;
+	}
+
+	h2.light
+	{
+		color: #FFFFFF;
+	}
+
+	h2.dark
+	{
+		color: #7C7C7C;
+	}
+
+	h4
+	{
+		font-size: 1.25em;
+		font-style: normal;
+	}
+
+	p 
+	{
+		font-family: $dt_header_light;
+		font-weight: 400;
+	}
+
+}
+
+.articleTitle
+{
+	font-family: $dt_header_condensed;
+	text-transform: none;
+	font-size: 2.5em;
+	text-decoration: none;
+}
+
+.articleTitle:hover
+{
+	text-decoration: underline;
+}
+
+.blogTeaser
+{
+	p
+	{
+		font-family: "Cardo", serif;
+		line-height: 1.3;
+		font-size: 1.2em;
+	}
+}

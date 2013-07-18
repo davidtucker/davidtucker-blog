@@ -1,0 +1,35 @@
+//-------------------------
+// COLORS
+//-------------------------
+
+$dt_color_accent: #FFC000;
+
+//-------------------------
+// FONTS
+//-------------------------
+
+$dt_header_light: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;//"HelveticaNeue-UltraLight", "Roboto";
+$dt_header_condensed: "HelveticaNeue-CondensedBold", "Helvetica Neue", "Roboto Condensed";
+$dt_header_ultraLite: "HelveticaNeue-UltraLight", "Helvetica Neue UltraLight", "Helvetica Neue", Arial, Helvetica, sans-serif;
+
+.ultraLite 
+{
+	font-weight: 100;
+	letter-spacing: 1px;
+	font-family: $dt_header_ultraLite;
+}
+
+//-------------------------
+// POSITIONING
+//-------------------------
+
+$header_height: 100px;
+
+//-------------------------
+// MEDIA QUERIES
+//-------------------------
+
+$default_breakpoint: "only screen and (max-width: 767px)";
+
+$dt_default_left_margin: 30px;
+$dt_default_left_margin_small: 0px;

@@ -1,0 +1,80 @@
+.around-web
+{
+	.column-content
+	{
+		max-width: 600px;
+		margin: 0 auto;
+		@include respond-to(handhelds)
+		{
+			padding-bottom: 30px;
+		}
+	}
+
+	ul 
+	{
+		float: left;
+		list-style: none;
+		padding: 5% 10%;
+		margin: 0 auto;
+
+		li 
+		{
+			color: #FFFFFF;
+
+			p
+			{
+				line-height: 1.2;
+			}
+
+		}
+
+		.caption
+		{
+			width: 100%;
+			text-align: right;
+			font-family: $header-font-family;
+			font-weight: 200;
+			font-style: italic;
+			color: #CCCCCC;
+		}
+
+	}
+}
+
+.featureBox
+{
+	width: 916px;
+	height: 300px;
+	background-position: left center;
+	background-repeat: no-repeat;
+	display: table-cell;
+	margin: 0 5%;
+	margin-bottom: 20px;
+
+	p
+	{
+		font-family: $header-font-family;
+		text-align: center;
+		vertical-align: middle;
+		width: 916px;
+		height: 300px;
+		display: table-cell;
+		font-size: ms(4);
+
+		a 
+		{
+			background-color: rgba(0, 0, 0, 0.6);
+			padding: 2%;
+			font-family: $dt_header_light;
+			font-weight: 100;
+			color: #FFFFFF;
+			letter-spacing: 1px;
+			@include single-transition(background-color, .15s, ease-in-out);
+		}
+
+		a:hover
+		{
+			background-color: rgba(0, 0, 0, 0.8);
+		}
+	}
+}
