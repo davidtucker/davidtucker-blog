@@ -92,14 +92,8 @@ module.exports = function(grunt) {
       setProductionRobotsFile: {
         command: 'rm ./build/staging-robots.txt'
       },
-      tagRelease: {
-        command: 'git tag -a "v' + helpers.getCurrentVersion() + '" -m "Production release on' + helpers.getLongDateString() + '"'
-      },
-      commitPackageJSON: {
-        command: [
-          'git add package.json',
-          'git commit -m "Updating version number in package.json file"'
-        ].join('&&')
+      bumpVersion: {
+        command: 'npm version patch'
       },
       mergeToMaster: {
         command: [
@@ -254,10 +248,8 @@ module.exports = function(grunt) {
     helpers.incrementBuildPatch);
 
   grunt.registerTask('release', [
-    'incrementBuildPatch',
-    'shell:commitPackageJSON',
+    'shell:bumpVersion',
     'shell:mergeToMaster',
-    'shell:tagRelease',
     'shell:pushToOrigin',
     'shell:returnToDevelop'
   ]); 
