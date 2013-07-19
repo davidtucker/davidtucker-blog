@@ -93,7 +93,10 @@ module.exports = function(grunt) {
         command: 'rm ./build/staging-robots.txt'
       },
       bumpVersion: {
-        command: 'npm version patch'
+        command: [
+          'npm version patch',
+          'sleep 3'
+        ].join('&&')
       },
       mergeToMaster: {
         command: [
