@@ -302,6 +302,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deployProduction', [
     'buildProduction',
+    's3:production',
     'release'
   ]);
 
