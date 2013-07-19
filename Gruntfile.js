@@ -1,5 +1,4 @@
 var shim = require('browserify-shim');
-var helpers = require('./plugins/gruntHelpers');
 
 module.exports = function(grunt) {
   
