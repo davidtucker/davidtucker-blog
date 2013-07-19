@@ -246,10 +246,6 @@ module.exports = function(grunt) {
 
   // Grunt Tasks
 
-  grunt.registerTask('incrementBuildPatch', 
-    'Increment the patch build number', 
-    helpers.incrementBuildPatch);
-
   grunt.registerTask('release', [
     'shell:bumpVersion',
     'shell:mergeToMaster',
