@@ -82,15 +82,6 @@ module.exports = function(grunt) {
       previewSite: {
         command: 'wintersmith preview --config ./config-preview.json',
       },
-      setStagingRobotsFile: {
-        command: [
-          'rm ./build/robots.txt',
-          'mv ./build/staging-robots.txt ./build/robots.txt'
-        ].join('&&')
-      },
-      setProductionRobotsFile: {
-        command: 'rm ./build/staging-robots.txt'
-      },
       bumpVersion: {
         command: [
           'npm version patch',
@@ -283,15 +274,13 @@ module.exports = function(grunt) {
   grunt.registerTask('buildStaging', [
     'prebuild',
     'shell:buildStaging',
-    'postbuild',
-    'shell:setStagingRobotsFile'
+    'postbuild'
   ]);
 
   grunt.registerTask('buildProduction', [
     'prebuild',
     'shell:buildProduction',
-    'postbuild',
-    'shell:setProductionRobotsFile'
+    'postbuild'
   ]);
 
   grunt.registerTask('deployStaging', [
