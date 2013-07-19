@@ -1,5 +1,4 @@
 {
   "template": "robots.html",
-  "filename": "robots.txt",
-  "disallowed": ""
+  "filename": "robots.txt"
 }
