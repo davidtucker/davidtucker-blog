@@ -237,10 +237,7 @@ module.exports = function(grunt) {
   // Grunt Tasks
 
   grunt.registerTask('release', [
-    'shell:bumpVersion',
-    'shell:mergeToMaster',
-    'shell:pushToOrigin',
-    'shell:returnToDevelop'
+    'shell:bumpVersion'
   ]); 
 
   grunt.registerTask('dev', [
