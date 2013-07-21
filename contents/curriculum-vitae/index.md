@@ -71,7 +71,7 @@ Speaking at industry conferences is something I consider very important.  I try 
 
 ### 2013
 
-* <span class="name">Interop Las Vegas (scheduled)</span>: Enterprise Mobile Apps Half-Day Workshop
+* <span class="name">Interop Las Vegas</span>: Enterprise Mobile Apps - Half-Day Workshop
 
 ### 2012
 
