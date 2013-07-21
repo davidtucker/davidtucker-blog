@@ -1,7 +1,7 @@
 ---
 title: Introducing the ST2 Power Tools
-subtitle: A solution for starting Sencha Touch 2 projects without all of the annoyances
-short_description: The iPad table project from Universal Mind is an example of where multi-device communication will go in the future.  It utilizes 15 iPads that know how to talk to one another in a way that creates one seamless experience.  In this article, David Tucker, Director of Research and Development for Technology at Universal Mind walks through its development.
+subtitle: A tool to speed development in Sencha Touch 2
+short_description: I have spent the last few weeks working with Sencha Touch 2 alongside my traditional iOS development.  I will have a lot to share coming up about Sencha Touch, but that will be in separate blog posts. I did notice however, that there were some ways that developers could become more productive when working with SDK.  This led to the creation of a new open source project, ST2 Power Tools.
 author: David Tucker
 date: February 14, 2012
 template: post.html
@@ -10,11 +10,11 @@ tweet_id: 291302742520123392
 feature_image: featured.jpg
 ---
 
-I’ve spent the last few weeks working with Sencha Touch 2 alongside my traditional iOS development.  I’ll have a lot to share coming up about Sencha Touch, but that will be in separate blog posts.  I did notice however, that there were some ways that developers could become more productive when working with SDK.  This led to the creation of a new open source project: ST2 Power Tools.
+I’ve spent the last few weeks working with Sencha Touch 2 alongside my traditional iOS development.  I’ll have a lot to share coming up about Sencha Touch, but that will be in separate blog posts.  I did notice however, that there were some ways that developers could become more productive when working with SDK.  This led to the creation of a new open source project: <a href="https://github.com/davidtucker/ST2PowerTools" target="_blank">ST2 Power Tools</a>.
 
 This open source project is designed solely to make a developer more productive when building Sencha Touch 2 applications.  Initially it tackles two of the biggest productivity gaps when building Sencha Touch applications: project generation, and templates for commonly used classes within Sencha Touch.
 
-> If you want to see the tools in action,  visit Create a Complete Sencha Touch 2 Application in Just Minutes.  In this demo I walk the viewer through the process of creating a complete Sencha Touch 2 application with the ST2 Power Tools in just 5 minutes.
+> If you want to see the tools in action,  visit Create a <a href="http://davidtucker.net/blog/view/create_a_complete_sencha_touch_2_application_in_just_minutes" target="_blank">Complete Sencha Touch 2 Application in Just Minutes</a>.  In this demo I walk the viewer through the process of creating a complete Sencha Touch 2 application with the ST2 Power Tools in just 5 minutes.
 
 ## Prerequisites
 Before we get too deep into the functionality, I should mention that my post on setting up your Mac for Sencha Touch 2 development is a prerequisite for all of the steps here.  The tools are flexible enough to work with different configurations (if you chose to setup your machine in a different manner than I did), but it will be easier if you follow the steps I provided.
