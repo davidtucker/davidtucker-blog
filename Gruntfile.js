@@ -83,9 +83,7 @@ module.exports = function(grunt) {
         command: 'wintersmith preview --config ./config-preview.json',
       },
       bumpVersion: {
-        command: {
-          'npm version patch'
-        }
+        command: 'npm version patch'
       }
     },
     uglify: {
