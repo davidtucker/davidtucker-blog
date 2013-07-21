@@ -83,22 +83,9 @@ module.exports = function(grunt) {
         command: 'wintersmith preview --config ./config-preview.json',
       },
       bumpVersion: {
-        command: [
-          'npm version patch',
-          'sleep 3'
-        ].join('&&')
-      },
-      mergeToMaster: {
-        command: [
-          'git checkout master',
-          'git merge --no-ff develop'
-        ].join('&&')
-      },
-      pushToOrigin: {
-        command: 'git push origin master'
-      },
-      returnToDevelop: {
-        command: 'git checkout develop'
+        command: {
+          'npm version patch'
+        }
       }
     },
     uglify: {
