@@ -195,6 +195,12 @@ nav .inline-list li
 	}
 }
 
+.postDate
+{
+	color: #333;
+	font-weight: normal;
+}
+
 article
 {
 	margin-bottom: 30px;
@@ -232,12 +238,6 @@ ul.article-list
 		.dateTime
 		{
 			font-size: 1em;
-		}
-
-		.postDate
-		{
-			color: #333;
-			font-weight: normal;
 		}
 
 		p
