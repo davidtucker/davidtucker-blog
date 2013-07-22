@@ -6,6 +6,16 @@ code
   color: #333;
 }
 
+p
+{
+  code
+  {
+    font-size: 0.85em;
+    padding: 0.1em;
+    font-weight: normal;
+  }
+}
+
 pre code 
 {
   margin: 0;
@@ -34,7 +44,6 @@ pre
   padding: 6px 10px;
   border-radius: 3px;
   margin: 15px 0;
-  margin-left: $dt_default_left_margin;
 
   @media screen and (max-width: 767px) 
   {
