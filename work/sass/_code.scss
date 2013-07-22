@@ -25,21 +25,23 @@ pre code
   background: transparent;
 }
  
-.highlight pre {
+.highlight pre 
+{
   background-color: #f8f8f8;
   border: 1px solid #cccccc;
-  font-size: 13px;
+  font-size: 1em;
   line-height: 19px;
   overflow: auto;
   padding: 6px 10px;
-  border-radius: 3px; }
+  border-radius: 3px;
+}
  
 pre 
 {
   background-color: #f8f8f8;
   border: 1px solid #cccccc;
-  font-size: 13px;
-  line-height: 19px;
+  font-size: 1em;
+  line-height: 1em;
   overflow: auto;
   padding: 6px 10px;
   border-radius: 3px;
