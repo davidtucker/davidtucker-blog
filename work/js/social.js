@@ -16,7 +16,9 @@ var populateSemanticInformation = function() {
     "{url}": location,
     "{subjectPrefix}": "[DavidTucker.net]",
     "{description}": description,
-    "{imageURL}": imageURL
+    "{imageURL}": imageURL,
+    "{twitterAccount}": "@mindmillmedia",
+    "{twitterAttribution}": "by @mindmillmedia"
   };
 };
 
@@ -65,7 +67,7 @@ var linkedInClick = function() {
 };
 
 var twitterClick = function() {
-  var url = tokenReplaceForURL("https://twitter.com/share?url={url}&text={title}");
+  var url = tokenReplaceForURL("https://twitter.com/share?url={url}&text={title}%20{twitterAttribution}");
   openPage(url, "TwitterShare", "height=325,width=500");
 };
 
@@ -83,10 +85,13 @@ var appNetClick = function() {
 
 var discussClick = function(eventObj) {
   var tweet_id = $(eventObj.currentTarget).data('tweet');
+  var url = "";
   if (tweet_id && tweet_id !== "") {
-    var url = "https://twitter.com/intent/tweet?in_reply_to=" + tweet_id;
-    openPage(url, "TwitterDiscuss", "height=325,width=500");
+    url = "https://twitter.com/intent/tweet?in_reply_to=" + tweet_id;
+  } else { 
+    url = tokenReplaceForURL("https://twitter.com/share?url={url}&text={twitterAccount}%20");
   }
+  openPage(url, "TwitterDiscuss", "height=325,width=500");
 };
 
 var twitterFollowClick = function() {
