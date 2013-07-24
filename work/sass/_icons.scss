@@ -12,9 +12,13 @@
 {
 	@include opacity(0.65);
 	@include single-transition(opacity, .15s, ease-in-out);
+	-moz-backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
 	&:hover, &:active
 	{
 		@include opacity(0.3);
+		-moz-backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
 	}
 }
 
