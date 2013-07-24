@@ -31,4 +31,4 @@ The site is currently hosted on Amazon S3.  For more information on how to host 
 
 ## Source Code
 
-I have provided the <a href="https://github.com/davidtucker/davidtucker-blog" target="_blank">source code for this site</a> on Github as both an example of my work as well as a tool for other developers looking to create a similar site using Wintersmith.  It is released under a BSD license, which means you must attribute me if you choose to reuse elements from my source code.  If you wish to resue some elements without attribution, please [contact me](/about/#contact).
+I have provided the <a href="https://github.com/davidtucker/davidtucker-blog" target="_blank">source code for this site</a> on Github as both an example of my work as well as a tool for other developers looking to create a similar site using Wintersmith.  It is released under an MIT license.  For any other code on this site which does specify a license, it is released under a BSD license which means you must attribute me if you choose to reuse elements from my source code.  If you wish to resue some elements without attribution, please [contact me](/about/#contact).
