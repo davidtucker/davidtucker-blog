@@ -55,8 +55,7 @@ var facebookClick = function() {
 };
 
 var emailClick = function() {
-  var description = encodeURIComponent($('#fb-root').data('description'));
-  var url = tokenReplaceForURL("mailto:?subject={subjectPrefix}%20{title}&body={title}%0D%0A%0D%0A" + description + "%0D%0A%0D%0A{url}");
+  var url = tokenReplaceForURL("mailto:?subject={subjectPrefix}%20{title}&body={title}%0D%0A%0D%0A{description}%0D%0A%0D%0A{url}");
   window.location.href = url;
 };
 
