@@ -21,6 +21,7 @@
   	"**/config.rb",
   	"**/sass",
   	"**/.sass-cache",
-    "**/.DS_Store"
+    "**/.DS_Store",
+    "s3RoutingRules.xml"
   ]
 }
