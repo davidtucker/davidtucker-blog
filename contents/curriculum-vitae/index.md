@@ -26,12 +26,17 @@ Working on any publication is a team effort.  I truly enjoyed the opportunity to
 
 I have included a selection of writing from each of the last few years here:
 
+### 2013
+
+* <span class="name">Universal Mind Mindshare</span>: <a href="http://www.universalmind.com/blog/the-technical-impact-of-ios-7" target="_blank">The Technical Impact of iOS7</a>
+
 ### 2012
 
 * <span class="name">Mashable</span>: <a href="http://mashable.com/2012/02/24/mobile-app-planning/" target="_blank">10 Things to Plan for When Developing a Mobile App</a>
 * <span class="name">Appolicious</span>:  <a href="http://www.appolicious.com/tech/articles/11236-what-can-users-expect-from-apple-s-new-ipad" target="_blank">What Can Users Expect from Apple's New iPad</a>
 * <span class="name">Appolicious</span>:  <a href="http://www.appolicious.com/tech/articles/12233-apple-living-out-mobile-first-with-wwdc-keynote" target="_blank">Apple living out 'mobile first' with WWDC Keynote</a>
 * <span class="name">Appolicious</span>:  <a href="http://www.appolicious.com/tech/articles/12711-the-iphone-5-what-could-it-mean-for-consumers" target="_blank">The iPhone 5: What Could it Mean for Consumers</a>
+* <span class="name">Universal Mind Mindshare</span>: <a href="http://www.universalmind.com/blog/top-5-considerations-for-transitioning-from-flex-to-html5" target="_blank">Top 5 Considerations for Transitioning from Flex to HTML5</a>
 
 ### 2011
 
@@ -71,7 +76,7 @@ Speaking at industry conferences is something I consider very important.  I try 
 
 ### 2013
 
-* <span class="name">Interop Las Vegas (scheduled)</span>: Enterprise Mobile Apps Half-Day Workshop
+* <span class="name">Interop Las Vegas</span>: Enterprise Mobile Apps - Half-Day Workshop
 
 ### 2012
 

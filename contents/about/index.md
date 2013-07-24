@@ -9,17 +9,17 @@ changefreq: monthly
 priority: 0.7
 ---
 
-David Tucker is a software architect and developer as well as a speaker and writer within the industry.  David currently serves as the Director of Research and Development and a Principal Architect for <a href="http://www.universalmind.com/" target="_blank">Universal Mind</a>.  In addition, David currently manages the iOS practice there.
+I (David Tucker) am a software architect and developer as well as a speaker and writer within the industry.  I currently serve as the Director of Research and Development and a Principal Architect for <a href="http://www.universalmind.com/" target="_blank">Universal Mind</a>.  In addition, I currently manage the iOS practice there.
 
-David is a developer who focuses on both iOS and HTML development.  David's projects at Universal Mind have included work for companies like FedEx, Sony Music, Principal Financial Group, and many others.  David was the lead architect on projects like Jimi Hendrix: The Complete Experience for Sony Music and currently is the lead architect on Universal Mind's own iBrainstorm.
+I am a developer who focuses on technologies like iOS, HTML, JavaScript, and NodeJS (among others).  My projects at Universal Mind have included work for companies like FedEx, Sony Music, Principal Financial Group, AT&T and many others.  I was the lead architect on projects like <a href="http://www.universalmind.com/blog/the-complete-digital-jimi-hendrix-experience-now-on-the-iphone-and-ipad" target="_blank">Jimi Hendrix: The Complete Experience</a> for Sony Music and Universal Mind's own Webby award winning [iPad Table](/articles/ipad-table-intro/).
 
-In addition to development and architecture, David has worked with many of Universal Mind's clients to help formulate an effective enterprise technical digital strategy that meets to demands of the current (and future) landscape of the evolving digital space.
+In addition to development and architecture, I have worked with many of Universal Mind's clients to help formulate an effective enterprise technical digital strategy that meets to demands of the current (and future) landscape of the evolving digital space.
 
 ## Writing
 
-David has contributed articles for sites like Mashable, Appolicious, Adobe's Inspire Magazine, as well as many others.  In addition, David is the autor of the AIR 1.5 Cookbook from O'Reilly and the AIR for Flash Develpers series at Lynda.com.
+I have contributed articles for sites like Mashable, Appolicious, Adobe's Inspire Magazine, as well as many others.  In addition, I am the autor of the AIR 1.5 Cookbook from O'Reilly and the AIR for Flash Develpers series at Lynda.com.
 
-For more information on David's writing, please check out the [Publications](/publications/) page.
+For more information on my writing, please check out my [Curriculum Vitae](/curriculum-vitae/).
 
 ## Speaking
 
