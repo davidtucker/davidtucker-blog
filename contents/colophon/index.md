@@ -27,7 +27,7 @@ For testing, I utilized <a href="http://www.browserstack.com/" target="_blank">B
 
 ## Hosting & Deployment
 
-The site is currently hosted on Amazon S3.  For more information on how to host a static site using Amazon S3, refer to my post titled [Deploying Static Sites to Amazon S3](http://www.cnn.com/).  I currently use a custom shell script to handle all content preparation (minification, formatting, etc...) and deployment to Amazon S3.  I use [Grunt](http://gruntjs.com/) to handle all of my build and deployment process.  You can check out my [Gruntfile.js](https://github.com/davidtucker/davidtucker-blog/blob/develop/Gruntfile.js) to see how I handle these items.
+The site is currently hosted on Amazon S3.  I use [Grunt](http://gruntjs.com/) to handle all of the develop, build and deployment processes.  You can check out my [Gruntfile.js](https://github.com/davidtucker/davidtucker-blog/blob/develop/Gruntfile.js) to see how I handle these items.
 
 ## Source Code
 
