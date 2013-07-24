@@ -64,11 +64,6 @@ h1
 		font-weight: 800;
 		font-style: normal;
 	}
-
-	a
-	{
-		//text-decoration: underline;
-	}
 }
 
 h2
@@ -81,9 +76,9 @@ h3
 {
 	color: #333333;
 	font-size: 1.25em;
-	font-weight: normal;
+	font-weight: bold;
 	margin-top: 0px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 h4
@@ -129,7 +124,7 @@ article .small-caption
 {
 	margin: 3% 0;
 	margin-top: 4%;
-	text-transform: uppercase;
+	
 	color: #AEAEAE;
 	font-family: $header-font-family;
 
@@ -258,11 +253,6 @@ section
 	text-transform: none;
 	font-size: 2.5em;
 	text-decoration: none;
-}
-
-.articleTitle:hover
-{
-	text-decoration: underline;
 }
 
 .blogTeaser

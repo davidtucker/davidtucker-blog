@@ -6,8 +6,6 @@ author: David Tucker
 date: 2013-01-02
 template: articles.html
 keywords: david tucker,developer,architect,author,speaker
-primary_feature: ipad-table-intro
-secondaryfeatures: xcode4-actions,ipad-table-intro
 changefreq: daily
 priority: 0.9
 ---

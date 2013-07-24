@@ -1,5 +1,4 @@
 var shim = require('browserify-shim');
-var helpers = require('./plugins/gruntHelpers');
 
 module.exports = function(grunt) {
   
@@ -64,7 +63,7 @@ module.exports = function(grunt) {
             src: ['**/*.png'],
             dest: 'build/',
             ext: '.png'
-          },
+          }
         ]
       }
     },
@@ -82,33 +81,12 @@ module.exports = function(grunt) {
       },
       previewSite: {
         command: 'wintersmith preview --config ./config-preview.json',
-      },
-      setStagingRobotsFile: {
-        command: [
-          'rm ./build/robots.txt',
-          'mv ./build/staging-robots.txt ./build/robots.txt'
-        ].join('&&')
-      },
-      setProductionRobotsFile: {
-        command: 'rm ./build/staging-robots.txt'
+        options: {
+          stderr: true
+        }
       },
       bumpVersion: {
-        command: [
-          'npm version patch',
-          'sleep 3'
-        ].join('&&')
-      },
-      mergeToMaster: {
-        command: [
-          'git checkout master',
-          'git merge --no-ff develop'
-        ].join('&&')
-      },
-      pushToOrigin: {
-        command: 'git push origin master'
-      },
-      returnToDevelop: {
-        command: 'git checkout develop'
+        command: 'npm version patch'
       }
     },
     uglify: {
@@ -191,7 +169,7 @@ module.exports = function(grunt) {
           'build/js/app.min.js',
           'build/css/app.css',
           'build/css/normalize.css' ],
-        dest: 'build/**/*.html',
+        dest: 'build/**/*.html'
       },
       js: {
         options: {
@@ -200,7 +178,7 @@ module.exports = function(grunt) {
           'build/js/app.min.js',
           'build/css/app.css',
           'build/css/normalize.css' ],
-        dest: 'build/**/*.html',
+        dest: 'build/**/*.html'
       },
       images: {
         options: {
@@ -213,7 +191,7 @@ module.exports = function(grunt) {
           'build/**/*.html',
           'build/**/*.js',
           'build/**/*.css',
-          'build/**/*.md',
+          'build/**/*.md'
         ]
       }
     },
@@ -222,7 +200,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'build/css',
         src: ['*.css'],
-        dest: 'build/css',
+        dest: 'build/css'
       }
     }
   });
@@ -246,15 +224,8 @@ module.exports = function(grunt) {
 
   // Grunt Tasks
 
-  grunt.registerTask('incrementBuildPatch', 
-    'Increment the patch build number', 
-    helpers.incrementBuildPatch);
-
   grunt.registerTask('release', [
-    'shell:bumpVersion',
-    'shell:mergeToMaster',
-    'shell:pushToOrigin',
-    'shell:returnToDevelop'
+    'shell:bumpVersion'
   ]); 
 
   grunt.registerTask('dev', [
@@ -288,15 +259,13 @@ module.exports = function(grunt) {
   grunt.registerTask('buildStaging', [
     'prebuild',
     'shell:buildStaging',
-    'postbuild',
-    'shell:setStagingRobotsFile'
+    'postbuild'
   ]);
 
   grunt.registerTask('buildProduction', [
     'prebuild',
     'shell:buildProduction',
-    'postbuild',
-    'shell:setProductionRobotsFile'
+    'postbuild'
   ]);
 
   grunt.registerTask('deployStaging', [
@@ -306,6 +275,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deployProduction', [
     'buildProduction',
+    's3:production',
     'release'
   ]);
 
