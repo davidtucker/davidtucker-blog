@@ -123,6 +123,17 @@ module.exports = function(grunt) {
             ext: '.html'
           }
         ]
+      },
+      xml: {
+        files: [
+          {
+            expand: true,
+            cwd: 'build/',
+            src: ['**/*.xml'],
+            dest: 'build/',
+            ext: '.xml'
+          }
+        ]
       }
     },
     s3: {
@@ -249,7 +260,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('postbuild', [
-    'lineremover:html',
+    'lineremover',
     'imagemin:dist',
     'uglify:production',
     'cacheBust',
