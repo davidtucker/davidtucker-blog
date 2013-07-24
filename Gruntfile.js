@@ -1,15 +1,6 @@
 var shim = require('browserify-shim');
-var moment = require('moment');
 
 module.exports = function(grunt) {
-
-  var getLongDateString = function() {
-    return moment().format('MMMM Do YYYY, h:mm:ss a');
-  };
-
-  var getShortDateString = function() {
-    return moment().format('YYYY-MM-DDTHHmm');
-  };
   
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -90,18 +81,12 @@ module.exports = function(grunt) {
       },
       previewSite: {
         command: 'wintersmith preview --config ./config-preview.json',
+        options: {
+          stderr: true
+        }
       },
-      setStagingRobotsFile: {
-        command: [
-          'rm ./build/robots.txt',
-          'mv ./build/staging-robots.txt ./build/robots.txt'
-        ].join('&&')
-      },
-      setProductionRobotsFile: {
-        command: 'rm ./build/staging-robots.txt'
-      },
-      tagRelease: {
-        command: 'git tag -a "v' + getShortDateString() + '" -m "Production release on' + getLongDateString() + '"'
+      bumpVersion: {
+        command: 'npm version patch'
       }
     },
     uglify: {
@@ -120,8 +105,11 @@ module.exports = function(grunt) {
       },
       sass: {
         files: [
-          'work/sass/**/*.scss'],
-        tasks: ['compass:dev']
+          'work/sass/**/*.scss'
+        ],
+        tasks: [
+          'compass:dev'
+        ]
       }
     },
     lineremover: {
@@ -174,7 +162,7 @@ module.exports = function(grunt) {
         fileNameFormat: '${name}.${hash}.cache.${ext}',
         renameFiles: true
       },
-      production: {
+      css: {
         options: {
         },
         src: [
@@ -182,6 +170,29 @@ module.exports = function(grunt) {
           'build/css/app.css',
           'build/css/normalize.css' ],
         dest: 'build/**/*.html',
+      },
+      js: {
+        options: {
+        },
+        src: [
+          'build/js/app.min.js',
+          'build/css/app.css',
+          'build/css/normalize.css' ],
+        dest: 'build/**/*.html',
+      },
+      images: {
+        options: {
+        },
+        src: [
+          'build/**/*.png',
+          'build/**/*.jpg'
+        ],
+        dest: [
+          'build/**/*.html',
+          'build/**/*.js',
+          'build/**/*.css',
+          'build/**/*.md',
+        ]
       }
     },
     cssmin: {
@@ -213,8 +224,18 @@ module.exports = function(grunt) {
 
   // Grunt Tasks
 
+  grunt.registerTask('release', [
+    'shell:bumpVersion'
+  ]); 
+
   grunt.registerTask('dev', [
     'watch'
+  ]);
+
+  grunt.registerTask('cacheBust', [
+    'hashres:images',
+    'hashres:css',
+    'hashres:js'
   ]);
 
   grunt.registerTask('preview', [
@@ -231,22 +252,20 @@ module.exports = function(grunt) {
     'lineremover:html',
     'imagemin:dist',
     'uglify:production',
-    'hashres:production',
+    'cacheBust',
     'cssmin:production'
   ]);
 
   grunt.registerTask('buildStaging', [
     'prebuild',
     'shell:buildStaging',
-    'postbuild',
-    'shell:setStagingRobotsFile'
+    'postbuild'
   ]);
 
   grunt.registerTask('buildProduction', [
     'prebuild',
     'shell:buildProduction',
-    'postbuild',
-    'shell:setProductionRobotsFile'
+    'postbuild'
   ]);
 
   grunt.registerTask('deployStaging', [
@@ -256,7 +275,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deployProduction', [
     'buildProduction',
-    'shell:tagRelease'
+    's3:production',
+    'release'
   ]);
 
 };

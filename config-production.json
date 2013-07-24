@@ -5,7 +5,8 @@
     "siteName": "The Site of David Tucker",
     "tagline": "David Tucker is a software architect, digital strategist, speaker, and writer.",
     "dateDescriptionFormat": "dddd, MMMM Do YYYY",
-    "defaultOGImage" : "/images/icons/siteIcon-144.png"
+    "defaultOGImage" : "/images/icons/siteIcon-144.png",
+    "robotsDisallowed": ""
   },
   "templates": "./templates",
   "contents": "./contents",
