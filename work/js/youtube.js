@@ -11,6 +11,8 @@ $(function() {
 		$(this).prepend("<div class='youtube-poster'></div><div class='playButton'></div>");
 		var playButtonDiv = $(this).children('.playButton');
 		var posterDiv = $(this).children('.youtube-poster');
+		var posterImgSource = $(this).data('poster');
+		var posterToLoad = (posterImgSource) ? posterImgSource : "http://img.youtube.com/vi/" + youtubeid + "/maxresdefault.jpg";
 		var posterImg = new Image();
 		$(posterImg).load(function() {
 			posterDiv.append(posterImg);
@@ -24,7 +26,7 @@ $(function() {
 				playButtonDiv.data('youtubeid', youtubeid);
 				resizePlayButtons();
 			}).attr("src", "/images/playButton.png");
-		}).attr("src", "http://img.youtube.com/vi/" + youtubeid + "/maxresdefault.jpg");
+		}).attr("src", posterToLoad);
 	});
 
 	$('.playButton').click(function(eventObj) {
