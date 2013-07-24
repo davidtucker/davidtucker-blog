@@ -63,7 +63,7 @@ module.exports = function(grunt) {
             src: ['**/*.png'],
             dest: 'build/',
             ext: '.png'
-          },
+          }
         ]
       }
     },
@@ -169,7 +169,7 @@ module.exports = function(grunt) {
           'build/js/app.min.js',
           'build/css/app.css',
           'build/css/normalize.css' ],
-        dest: 'build/**/*.html',
+        dest: 'build/**/*.html'
       },
       js: {
         options: {
@@ -178,7 +178,7 @@ module.exports = function(grunt) {
           'build/js/app.min.js',
           'build/css/app.css',
           'build/css/normalize.css' ],
-        dest: 'build/**/*.html',
+        dest: 'build/**/*.html'
       },
       images: {
         options: {
@@ -191,7 +191,7 @@ module.exports = function(grunt) {
           'build/**/*.html',
           'build/**/*.js',
           'build/**/*.css',
-          'build/**/*.md',
+          'build/**/*.md'
         ]
       }
     },
@@ -200,7 +200,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'build/css',
         src: ['*.css'],
-        dest: 'build/css',
+        dest: 'build/css'
       }
     }
   });
