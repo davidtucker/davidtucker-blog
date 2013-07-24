@@ -23,7 +23,7 @@ All raster graphics were created in Adobe Photoshop and all vector graphics incl
 
 ## Testing
 
-For testing, I utilized <a href="http://www.browserstack.com/" target="_blank">BrowserStack</a> to ensure my site works properly across my targeted browsers (IE9+, Firefox 3+, Chrome x+, Safari x+, iOS 4.3+, and Android 2.2+).  I used Modernizr to detect supported features and adjust the display of a warning banner is not all required features were supported.
+For testing, I utilized <a href="http://www.browserstack.com/" target="_blank">BrowserStack</a> to ensure my site works properly across my targeted browsers (IE9+, Firefox 3+, Chrome x+, Safari x+, iOS 4.3+, and Android 2.2+).  I used <a href="http://modernizr.com/" target="_blank">Modernizr</a> to detect supported features and adjust the display of a warning banner is not all required features were supported.
 
 ## Hosting & Deployment
 
@@ -31,4 +31,4 @@ The site is currently hosted on Amazon S3.  I use [Grunt](http://gruntjs.com/) t
 
 ## Source Code
 
-I have provided the <a href="https://github.com/davidtucker/davidtucker-blog" target="_blank">source code for this site</a> on Github as both an example of my work as well as a tool for other developers looking to create a similar site using Wintersmith.  It is released under an MIT license.  For any other code on this site which does specify a license, it is released under a BSD license which means you must attribute me if you choose to reuse elements from my source code.  If you wish to resue some elements without attribution, please [contact me](/about/#contact).
+I have provided the <a href="https://github.com/davidtucker/davidtucker-blog" target="_blank">source code for this site on Github</a> as both an example of my work as well as a tool for other developers looking to create a similar site using Wintersmith.  It is released under an MIT license.
