@@ -81,6 +81,9 @@ module.exports = function(grunt) {
       },
       previewSite: {
         command: 'wintersmith preview --config ./config-preview.json',
+        options: {
+          stderr: true
+        }
       },
       bumpVersion: {
         command: 'npm version patch'
