@@ -33,10 +33,18 @@
 	</RoutingRule>
 	<RoutingRule>
 		<Condition>
-			<KeyPrefixEquals>/blog/view/cairngorm_tutorials</KeyPrefixEquals>
+			<KeyPrefixEquals>blog/view/cairngorm_tutorials</KeyPrefixEquals>
 		</Condition>
 		<Redirect>
 			<ReplaceKeyWith>articles/cairngorm-tutorials/</ReplaceKeyWith>
+		</Redirect>
+	</RoutingRule>
+	<RoutingRule>
+		<Condition>
+			<KeyPrefixEquals>blog/view/working_with_live_templates_in_webstorm_and_phpstorm</KeyPrefixEquals>
+		</Condition>
+		<Redirect>
+			<ReplaceKeyWith>articles/live-templates-phpstorm-webstorm/</ReplaceKeyWith>
 		</Redirect>
 	</RoutingRule>
 	<RoutingRule>
@@ -56,4 +64,3 @@
 		</Redirect>
 	</RoutingRule>
 </RoutingRules>
-
