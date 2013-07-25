@@ -43,7 +43,7 @@ The script will guide you through the rest.  You should be prepared to answer th
 2. Namespace for Your Application
 3. Relative Path to your SDK (which if you followed the setup tutorial should be `../../sdk`)
 
-If you want to see a complete interaction with the generator, you can <a href="http://youtu.be/9MEe6oPoOj0" target="_blank">view the demo video</a> or you can view a <a href="https://gist.github.com/davidtucker/1827581" target="_blank">Gist which contains the command line interaction</a> in that demo.
+If you want to see a complete interaction with the generator, you can <a href="/articles/create-sencha-touch-2-app/" target="_blank">view the demo video</a> or you can view a <a href="https://gist.github.com/davidtucker/1827581" target="_blank">Gist which contains the command line interaction</a> in that demo.
 
 The templates can be modified to fit your needs.  You can read instructions on how to do this on the <a href="https://github.com/davidtucker/ST2PowerTools" target="_blank">ST2 Power Tools</a> page.
 
