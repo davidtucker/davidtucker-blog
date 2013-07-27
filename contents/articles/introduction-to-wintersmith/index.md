@@ -10,7 +10,44 @@ keywords: wintersmith,static site,nodejs
 
 ## Getting Started
 
-Test Test Test
+The best way to get started with Wintersmith is to just jump into the examples.  With the current release (as of writing this article the repository is at <a href="https://github.com/jnordberg/wintersmith/commit/e888116b3182fde973ea6605f1d3eb238af95533" target="_blank">commit e888116b31</a>), there are several great examples you can try out.  Since this entire series is about my personal blog, you can use the blog example initially.  
+
+I would recommend downloading the current release (which is currently 2.0.5).  You can see a <a href="https://github.com/jnordberg/wintersmith/releases" target="_blank">list of the current releases here</a>.  You will install Wintersmith later via npm, so downloading
+
+### Installation
+
+Getting Wintersmith installed is fairly easy when using npm.  You simply need to type the following:
+
+```
+npm install wintersmith -g
+```
+
+Yes, Wintersmith does install globally.  In addition, it doesn't have the separation between the cli module and the actual core module (as you might have noticed in projects like <a href="https://github.com/gruntjs/grunt" target="_blank">grunt</a>).  This means that you will need to use the same version of Wintersmith for all of the projects on your machine (or switch versions manually).  While this is a bit of a limitation, I do think it is a small one that I can live with.
+
+
+### Preview Server
+
+Once you have Wintersmith installed, you can run the examples that come with the source.
+
+``` 
+wintersmith preview
+```
+
+### Building the Example Site
+
+Test
+
+```
+wintersmith build
+```
+
+### Creating a New Site
+
+Test
+
+```
+wintersmith new <project_name>
+```
 
 ## Templating
 
@@ -51,10 +88,4 @@ Here is a sample markdown Wintersmith content file for my About page:
 
 * Part 1 - [The Need for a Static Site Generator](/articles/move-to-static-site-generator/)
 * Part 2 - An Introduction to the Wintersmith Static Site Generator
-
-
-
-
-
-
 
