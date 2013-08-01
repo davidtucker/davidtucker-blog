@@ -1,16 +1,18 @@
 ---
-title: An Introduction to the Wintersmith Static Site Generator
+title: An Introduction to the Wintersmith Process
 subtitle: This is Part 2 of a series of posts on how I went about developing my new site and the technology, reasoning, and lessons behind it
-short_description: 
+short_description: In the last post, [The Need for a Static Site Generator](/articles/move-to-static-site-generator/), I outlined the process I went through to determine why I needed a static site generator and then my criteria for choosing one.  In this post, I want to outline basic steps for getting started with Wintersmith, review the templating engine I chose, and analyze the process for authoring content with Markdown.
 author: David Tucker
 date: July 26, 2013
 template: post.html
-keywords: wintersmith,static site,nodejs
+keywords: wintersmith,static site,nodejs,nunjucks,markdown
 ---
 
-## Getting Started
+In the last post, [The Need for a Static Site Generator](/articles/move-to-static-site-generator/), I outlined the process I went through to determine why I needed a static site generator and then my criteria for choosing one.  In this post, I want to outline basic steps for getting started with Wintersmith, review the templating engine I chose, and analyze the process for authoring content with Markdown.
 
-The best way to get started with Wintersmith is to just jump into the examples.  With the current release (as of writing this article the repository is at <a href="https://github.com/jnordberg/wintersmith/commit/e888116b3182fde973ea6605f1d3eb238af95533" target="_blank">commit e888116b31</a>), there are several great examples you can try out.  Since this entire series is about my personal blog, you can use the blog example initially.  
+## Getting Started with Wintersmith
+
+The best way to get started with Wintersmith is to just jump into the examples.  With the current release (as of writing this article the repository is at <a href="https://github.com/jnordberg/wintersmith/commit/e888116b3182fde973ea6605f1d3eb238af95533" target="_blank">this commit</a>), there are several great examples you can try out.  Since this entire series is about my personal blog, you can use the blog example initially.  
 
 I would recommend downloading the current release (which is currently 2.0.5).  You can see a <a href="https://github.com/jnordberg/wintersmith/releases" target="_blank">list of the current releases here</a>.  You will install Wintersmith later via npm, so downloading
 
@@ -22,7 +24,11 @@ Getting Wintersmith installed is fairly easy when using npm.  You simply need to
 npm install wintersmith -g
 ```
 
-Yes, Wintersmith does install globally.  In addition, it doesn't have the separation between the cli module and the actual core module (as you might have noticed in projects like <a href="https://github.com/gruntjs/grunt" target="_blank">grunt</a>).  This means that you will need to use the same version of Wintersmith for all of the projects on your machine (or switch versions manually).  While this is a bit of a limitation, I do think it is a small one that I can live with.
+If this command fails, you may need to add `sudo` before this command on the same line.  This is dictated by how npm was installed on your machine initially.
+
+This command will install Wintersmith globally on your machine.  You can now utilize the command line utility to create a new Wintersmith site, build a site that has been created, or preview the site using the included preview server.
+
+> Yes, <b>Wintersmith does install globally</b>.  In addition, it doesn't have the separation between the cli module and the actual core module (as you might have noticed in projects like <a href="https://github.com/gruntjs/grunt" target="_blank">grunt</a>).  This means that you will need to use the same version of Wintersmith for all of the projects on your machine (or switch versions manually).  While this is a bit of a limitation, I do think it is a small one that I can live with.
 
 
 ### Preview Server
