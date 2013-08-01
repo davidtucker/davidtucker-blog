@@ -72,19 +72,25 @@ module.exports = function(grunt) {
         'work/js/*.js',
         'Gruntfile.js' ]
     },
-    shell: {
-      buildProduction: {
-        command: 'wintersmith build --config ./config-production.json'
-      },
-      buildStaging: {
-        command: 'wintersmith build --config ./config-staging.json'
-      },
-      previewSite: {
-        command: 'wintersmith preview --config ./config-preview.json',
+    wintersmith: {
+      staging: {
         options: {
-          stderr: true
+          config: './config-staging.json'
         }
       },
+      production: {
+        options: {
+          config: './config-production.json'
+        }
+      },
+      preview: {
+        options: {
+          action: "preview",
+          config: './config-preview.json'
+        }
+      }
+    },
+    shell: {
       bumpVersion: {
         command: 'npm version patch'
       }
@@ -232,6 +238,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-s3');
   grunt.loadNpmTasks('grunt-hashres');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-wintersmith');
 
   // Grunt Tasks
 
@@ -269,13 +276,13 @@ module.exports = function(grunt) {
 
   grunt.registerTask('buildStaging', [
     'prebuild',
-    'shell:buildStaging',
+    'wintersmith:staging',
     'postbuild'
   ]);
 
   grunt.registerTask('buildProduction', [
     'prebuild',
-    'shell:buildProduction',
+    'wintersmith:production',
     'postbuild'
   ]);
 
