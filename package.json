@@ -1,6 +1,6 @@
 {
   "name": "david-tucker-site",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "David Tucker",
   "description": "The Personal Blog of David Tucker at davidtucker.net",
   "scripts": {
@@ -28,6 +28,7 @@
     "grunt-parallel": "~0.1.0",
     "grunt-s3": "~0.2.0-alpha",
     "grunt-shell": "~0.2.2",
+    "grunt-wintersmith": "~0.0.2",
     "moment": "~1.7.2",
     "underscore": "~1.5.1",
     "wintersmith": "~2.0.5",

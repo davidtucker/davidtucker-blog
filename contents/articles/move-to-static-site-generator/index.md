@@ -1,6 +1,6 @@
 ---
 title: The Need for a Static Site Generator
-subtitle: This is Part 1 of a series of posts on how I went about developing my new site and the technology, reasoning, and lessons behind it
+subtitle: This is Part 1 of a series of posts on how I went about developing my new site and the technology, reasoning, and lessons behind it. See <a href="#seriesListing">entire series listing</a>.
 short_description: Writing has always been a part of what I do.  I've had a chance to blog for sites like Mashable, Appolicious, and InsideRIA, but my main goal has been to have a quality personal blog.  However, that hasn't always happened since the technical side kept getting in my way.  I wanted to find the best way to create a blog that required minimal maintenance of the engine and also allowed me to write content quickly and easily while also rapdily iterating on the design and structure.
 author: David Tucker
 date: July 24, 2013
@@ -65,6 +65,13 @@ My main issue with the examples were that they were all done with Jade as the te
 
 With these elements in place, I was able to move forward to building the first version of my new site.  In the upcoming posts in this series I will outline my development process, technical choices, and even my deployment choices and process.
 
+---
+<a name="seriesListing"></a>
+## Article Series
+
+* Part 1 - [The Need for a Static Site Generator](/articles/move-to-static-site-generator/)
+* Part 2 - [An Introduction to the Wintersmith Process](/articles/introduction-to-wintersmith/)
+* More Posts Coming Soon....
 
 
 
