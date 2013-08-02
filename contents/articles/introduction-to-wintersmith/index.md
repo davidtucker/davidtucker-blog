@@ -1,7 +1,7 @@
 ---
 title: An Introduction to the Wintersmith Process
 subtitle: This is Part 2 of a series of posts on how I went about developing my new site and the technology, reasoning, and lessons behind it.  See <a href="#seriesListing">entire series listing</a>.
-short_description: In the last post, [The Need for a Static Site Generator](/articles/move-to-static-site-generator/), I outlined the process I went through to determine why I needed a static site generator and then my criteria for choosing one.  In this post, I want to outline basic steps for getting started with Wintersmith, review the templating engine I chose, and analyze the process for authoring content with Markdown.
+short_description: In the last post, The Need for a Static Site Generator, I outlined the process I went through to determine why I needed a static site generator and then my criteria for choosing one.  In this post, I want to outline basic steps for getting started with Wintersmith, review the templating engine I chose, and analyze the process for authoring content with Markdown.
 author: David Tucker
 date: July 26, 2013
 template: post.html
@@ -12,7 +12,7 @@ In the last post, [The Need for a Static Site Generator](/articles/move-to-stati
 
 ## Getting Started with Wintersmith
 
-The best way to get started with Wintersmith is to just jump into the examples.  With the current release (as of writing this article the repository is at <a href="https://github.com/jnordberg/wintersmith/commit/e888116b3182fde973ea6605f1d3eb238af95533" target="_blank">this commit</a>), there are several great examples you can try out.  Since this entire series is about my personal blog, you can use the blog example initially.  
+The best way to get started with Wintersmith is to utilize the new site generation tool that is a part of the core module.  With the current release (as of writing this article the repository is at <a href="https://github.com/jnordberg/wintersmith/commit/e888116b3182fde973ea6605f1d3eb238af95533" target="_blank">this commit</a>), there are also several examples which are also included in the module.
 
 I would recommend downloading the current release (which is currently 2.0.5).  You can see a <a href="https://github.com/jnordberg/wintersmith/releases" target="_blank">list of the current releases here</a>.  You will install Wintersmith later via npm, so downloading
 
@@ -28,7 +28,7 @@ If this command fails, you may need to add `sudo` before this command on the sam
 
 This command will install Wintersmith globally on your machine.  You can now utilize the command line utility to create a new Wintersmith site, build a site that has been created, or preview the site using the included preview server.
 
-> Yes, <b>Wintersmith does install globally</b>.  In addition, it doesn't have the separation between the cli module and the actual core module (as you might have noticed in projects like <a href="https://github.com/gruntjs/grunt" target="_blank">grunt</a>).  This means that you will need to use the same version of Wintersmith for all of the projects on your machine (or switch versions manually).  While this is a bit of a limitation, I do think it is a small one that I can live with.
+> Yes, <b>Wintersmith does install globally</b>.  In addition, it doesn't have the separation between the cli module and the actual core module (as you might have noticed in projects like <a href="https://github.com/gruntjs/grunt" target="_blank">grunt</a>).  This means that you will need to use the same version of Wintersmith for all of the projects on your machine (or switch versions manually).  While this is a bit of a limitation (and not a best practice for node modules moving forward), I do think it is a small one that I can live with.
 
 ### Creating a New Site
 
@@ -42,7 +42,7 @@ In the following example, I ran the following command with project name of `samp
 
 ![Wintersmith New Site](wintersmithNew.png "Wintersmith New Site")
 
-This is a great start for someone creating a blog with Wintersmith.  It includes your config file, sample posts, templates, your package.json file, and most anything else you would need initially.  By default, the generated project uses Markdown for the content (which we will use) and Jade for the templates (which we will replace).
+This is a great start for someone creating a blog with Wintersmith.  It includes your config file, sample posts, templates, your `package.json` file, and most anything else you would need initially.  By default, the generated project uses Markdown for the content (which we will use) and Jade for the templates (which we will replace).
 
 ### Preview Server
 
@@ -52,9 +52,9 @@ After the sample site is created, you can easily preview the generated site by u
 wintersmith preview
 ```
 
-Now, if you launch a browser and go to [http://localhost:8080/](http://localhost:8080/) you should see the site live.  In the background what is happening is that Wintersmith is running an <a href="http://expressjs.com/" target="_blank">express</a> server and intelligently deciding when to build the specific resources for the site based on what you are requesting.
+Now, if you launch a browser and go to [http://localhost:8080/](http://localhost:8080/) you should see the site live.  In the background Wintersmith is running an <a href="http://expressjs.com/" target="_blank">express</a> server and intelligently deciding when to build specific resources for the site based on what you are requesting.
 
-With this in place, you can go and change some content in the content directory.  Once you change it, you can reload the page of the site and see that change reflected.  This can provide for a very efficient workflow and authoring environment especially when paired with something like <a href="https://github.com/gruntjs/grunt-contrib-livereload" target="_blank">grunt-contrib-livereload</a>.
+With this in place, you can go and change some content in the content directory.  Once you change it, you can reload the page of the site and see that change reflected.  This can provide for a very efficient workflow and authoring environment especially when paired with modules like <a href="https://github.com/gruntjs/grunt-contrib-livereload" target="_blank">grunt-contrib-livereload</a>.
 
 ### Building the Example Site
 
@@ -64,15 +64,15 @@ Finally, with the sample site in place, you are ready to build it.  Simply enter
 wintersmith build
 ```
 
-Now you can navigate to the `build/` folder and see all of the generated files for the site.  Now the site would be ready to upload to your web host or to something like Amazon S3.
+Now you can navigate to the `build/` folder and see all of the generated files for the site (this output directory is configurable in the `config.json` file).  Now the site would be ready to upload to your web host.
 
 ## Templating
 
-With an understanding of how Wintersmith works, let's shift gears and begin to discuss the approach I took in choosing a templating solution to replace Jade for my site.
+With an understanding of how Wintersmith works, let's shift gears and begin to discuss the process I took in choosing a templating solution to replace Jade.  Luckily Wintersmith has a plugin API for templating, so you should be able to find something that meets your needs.  If not, you can create it.
 
 First, it is important to note that I was extremely picky about templating when going into this.  As mentioned before, I've seen templates done right (I think Expression Engine did this fairly well) and wrong (Wordpress templates violate several different development best practices).  I wanted to find a templating solution that was elegant, minimized needless duplication, and utilized actual HTML (and not some sort of abstraction such as Jade).
 
-I ended up settling on Nunjucks (which is a JavaScript port of the jinja2 templating engine in python).  Nunjucks supports template inheritance which helps to avoid the needless duplication I mentioned previously.  It also is done in HTML and uses a custom tag syntax for the items generated from the template.  At a glance, it is very easy to determine what is static HTML and what will be inserted by the template engine.  I have found that this approach requires the least amount of effort when transitioning from a mocked up HTML page to being integrated with the static site generator.
+I ended up settling on <a href="http://nunjucks.jlongster.com/" target="_blank">Nunjucks</a> (which is a JavaScript port of the <a href="http://jinja.pocoo.org/" target="_blank">jinja2</a> templating engine in python).  Nunjucks supports template inheritance which helps to avoid the needless duplication I mentioned previously.  It also is done in HTML and uses a custom tag syntax for the items generated from the template.  At a glance, it is very easy to determine what is static HTML and what will be inserted by the template engine.  I have found that this approach requires the least amount of effort when transitioning from a mocked up HTML page to being integrated with the static site generator.
 
 Here is the sample template I use for the listing of blog posts:
 
@@ -91,7 +91,7 @@ With this elegant and efficient templating solution, I was able to quickly move 
 
 ### Integrating with Wintersmith
 
-Luckily, there was an existing <a href="https://github.com/jbuck/wintersmith-nunjucks" target="_blank">wintersmith-nunjucks</a> plugin.  I was able to leverage this plugin to bring in nunjucks support into my wintersmith project.  To include this plugin, I needed to do two things:
+Luckily, there was an existing <a href="https://github.com/jbuck/wintersmith-nunjucks" target="_blank">wintersmith-nunjucks</a> plugin (written by <a href="https://github.com/jbuck" target="_blank">Jon Buckley</a>).  I was able to leverage this plugin to bring in nunjucks support into my wintersmith project.  To include this plugin, I needed to do two things:
 
 1.  I needed to install the wintersmith-nunjucks plugin using npm (and save it to the development dependencies of my `package.json` file) by running the command: `npm install wintersmith-nunjucks --save-dev`
 2.  Next, I needed to add the plugin to my `config.json` file.  With this, I simply needed to add the `'wintersmith-nunjucks'` string to the `plugins` array.  You can see <a href="https://github.com/davidtucker/davidtucker-blog/blob/develop/config-preview.json" target="_blank">an example of one of my current config files</a> which includes this.
@@ -120,5 +120,5 @@ With Wintersmith in place (including a templating engine I liked and a good cont
 
 * Part 1 - [The Need for a Static Site Generator](/articles/move-to-static-site-generator/)
 * Part 2 - [An Introduction to the Wintersmith Process](/articles/introduction-to-wintersmith/)
-* More Parts Coming Soon....
+* More Posts Coming Soon....
 
