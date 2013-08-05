@@ -12,13 +12,11 @@ In the last post, [The Need for a Static Site Generator](/articles/move-to-stati
 
 ## Getting Started with Wintersmith
 
-The best way to get started with Wintersmith is to utilize the new site generation tool that is a part of the core module.  With the current release (as of writing this article the repository is at <a href="https://github.com/jnordberg/wintersmith/commit/e888116b3182fde973ea6605f1d3eb238af95533" target="_blank">this commit</a>), there are also several examples which are also included in the module.
-
-I would recommend downloading the current release (which is currently 2.0.5).  You can see a <a href="https://github.com/jnordberg/wintersmith/releases" target="_blank">list of the current releases here</a>.  You will install Wintersmith later via npm, so downloading
+The best way to get started with Wintersmith is to utilize the new site generation tool that is a part of the core module.  There are also some great examples that are included with the project, but the site generator tool will let you build a nearly complete site with just a single command.
 
 ### Installation
 
-Getting Wintersmith installed is fairly easy when using npm.  You simply need to type the following:
+To get started, you will need to install Wintersmith.  Getting Wintersmith installed is fairly easy when using npm.  You simply need to type the following:
 
 ```
 npm install wintersmith -g
