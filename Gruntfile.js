@@ -257,7 +257,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('preview', [
-    'shell:previewSite'
+    'wintersmith:preview'
   ]);
 
   grunt.registerTask('prebuild', [

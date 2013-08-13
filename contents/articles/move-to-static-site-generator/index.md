@@ -71,7 +71,8 @@ With these elements in place, I was able to move forward to building the first v
 
 * Part 1 - [The Need for a Static Site Generator](/articles/move-to-static-site-generator/)
 * Part 2 - [An Introduction to the Wintersmith Process](/articles/introduction-to-wintersmith/)
-* More Posts Coming Soon....
+* Part 3 - [Automating The Development, Build, and Deployment Process with Grunt](/articles/automating-with-grunt/)
+* More posts coming soon
 
 
 
