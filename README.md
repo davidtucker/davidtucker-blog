@@ -7,6 +7,9 @@ This repository is the code used to generate my personal site, [davidtucker.net]
 I am currently writing a blog series to detail most every area of development that went into this.  I will add the posts here as I complete them:
 
 - Part 1: [The Need for a Static Site Generator](http://www.davidtucker.net/articles/move-to-static-site-generator/)
+- Part 2: [An Introduction to the Wintersmith Process](http://davidtucker.net/articles/introduction-to-wintersmith/)
+- Part 3: [Automating The Development, Build, and Deployment Process with Grunt](http://davidtucker.net/articles/automating-with-grunt/)
+- More Posts Coming Soon
 
 ## License
 
