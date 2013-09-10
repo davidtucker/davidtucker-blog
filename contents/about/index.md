@@ -17,7 +17,7 @@ In addition to development and architecture, I have worked with many of Universa
 
 ## Writing
 
-I have contributed articles for sites like Mashable, Appolicious, Adobe's Inspire Magazine, as well as many others.  In addition, I am the autor of the AIR 1.5 Cookbook from O'Reilly and the AIR for Flash Develpers series at Lynda.com.
+I have contributed articles for sites like Mashable, VentureBeat, Appolicious, Adobe's Inspire Magazine, as well as many others.  In addition, I am the autor of the AIR 1.5 Cookbook from O'Reilly and the AIR for Flash Develpers series at Lynda.com.
 
 For more information on my writing, please check out my [Curriculum Vitae](/curriculum-vitae/).
 

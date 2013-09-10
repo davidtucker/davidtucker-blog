@@ -1,6 +1,6 @@
 {
   "name": "david-tucker-site",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "David Tucker",
   "description": "The Personal Blog of David Tucker at davidtucker.net",
   "scripts": {
@@ -32,7 +32,6 @@
     "moment": "~1.7.2",
     "underscore": "~1.5.1",
     "wintersmith": "~2.0.5",
-    "wintersmith-nunjucks": "~0.2.0",
-    "semver": "~2.0.10"
+    "wintersmith-nunjucks": "~0.2.0"
   }
 }

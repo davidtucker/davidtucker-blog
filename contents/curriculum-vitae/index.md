@@ -28,6 +28,7 @@ I have included a selection of writing from each of the last few years here:
 
 ### 2013
 
+* <span class="name">VentureBeat</span>: <a href="http://venturebeat.com/2013/09/10/5-ways-apples-new-iphone-5c-5s-and-ios-7-will-impact-your-business/" target="_blank">5 ways Apple’s new iPhone 5C, 5S, and iOS 7 will impact your business</a>
 * <span class="name">Universal Mind Mindshare</span>: <a href="http://www.universalmind.com/blog/the-technical-impact-of-ios-7" target="_blank">The Technical Impact of iOS7</a>
 
 ### 2012
