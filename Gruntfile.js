@@ -5,7 +5,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     cfg: {
-
+      cache: {
+        header: 'public,max-age=604800',
+        files: 'build/**/*.{css,js}'
+      }
     },
     clean: {
       build: [
@@ -176,17 +179,12 @@ module.exports = function(grunt) {
         options: {
           bucket: 'livestaging.davidtucker.net',
           headers: {
-            "Cache-Control": "public,max-age=604800"
+            'Cache-Control': '<%= cfg.cache.header %>'
           }
         },
         upload: [
           {
-            src: 'build/**/*.js',
-            dest: '/',
-            rel: 'build'
-          },
-          {
-            src: 'build/**/*.css',
+            src: '<%= cfg.cache.files %>',
             dest: '/',
             rel: 'build'
           }
@@ -196,17 +194,12 @@ module.exports = function(grunt) {
         options: {
           bucket: 'davidtucker.net',
           headers: {
-            "Cache-Control": "public,max-age=604800"
+            'Cache-Control': '<%= cfg.cache.header %>'
           }
         },
         upload: [
           {
-            src: 'build/**/*.js',
-            dest: '/',
-            rel: 'build'
-          },
-          {
-            src: 'build/**/*.css',
+            src: '<%= cfg.cache.files %>',
             dest: '/',
             rel: 'build'
           }
