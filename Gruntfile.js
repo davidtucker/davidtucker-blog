@@ -171,7 +171,47 @@ module.exports = function(grunt) {
             rel: 'build'
           }
         ]
-      }
+      },
+      stagingCached: {
+        options: {
+          bucket: 'livestaging.davidtucker.net',
+          headers: {
+            "Cache-Control": "public,max-age=604800"
+          }
+        },
+        upload: [
+          {
+            src: 'build/**/*.js',
+            dest: '/',
+            rel: 'build'
+          },
+          {
+            src: 'build/**/*.css',
+            dest: '/',
+            rel: 'build'
+          }
+        ]
+      },
+      productionCached: {
+        options: {
+          bucket: 'davidtucker.net',
+          headers: {
+            "Cache-Control": "public,max-age=604800"
+          }
+        },
+        upload: [
+          {
+            src: 'build/**/*.js',
+            dest: '/',
+            rel: 'build'
+          },
+          {
+            src: 'build/**/*.css',
+            dest: '/',
+            rel: 'build'
+          }
+        ]
+      },
     },
     hashres: {
       options: {
@@ -288,12 +328,14 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deployStaging', [
     'buildStaging',
-    's3:staging'
+    's3:staging',
+    's3:stagingCached'
   ]);
 
   grunt.registerTask('deployProduction', [
     'buildProduction',
     's3:production',
+    's3:productionCached',
     'release'
   ]);
 
