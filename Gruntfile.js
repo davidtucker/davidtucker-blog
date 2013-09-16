@@ -8,6 +8,10 @@ module.exports = function(grunt) {
       cache: {
         header: 'public,max-age=604800',
         files: 'build/**/*.{css,js}'
+      },
+      deploy: {
+        staging: 'livestaging.davidtucker.net',
+        production: 'davidtucker.net'
       }
     },
     clean: {
@@ -153,7 +157,7 @@ module.exports = function(grunt) {
       },
       staging: {
         options: {
-          bucket: 'livestaging.davidtucker.net'
+          bucket: '<%= cfg.deploy.staging %>'
         },
         upload: [
           {
@@ -165,7 +169,7 @@ module.exports = function(grunt) {
       },
       production: {
         options: {
-          bucket: 'davidtucker.net'
+          bucket: '<%= cfg.deploy.production %>'
         },
         upload: [
           {
@@ -177,7 +181,7 @@ module.exports = function(grunt) {
       },
       stagingCached: {
         options: {
-          bucket: 'livestaging.davidtucker.net',
+          bucket: '<%= cfg.deploy.staging %>',
           headers: {
             'Cache-Control': '<%= cfg.cache.header %>'
           }
@@ -192,7 +196,7 @@ module.exports = function(grunt) {
       },
       productionCached: {
         options: {
-          bucket: 'davidtucker.net',
+          bucket: '<%= cfg.deploy.production %>',
           headers: {
             'Cache-Control': '<%= cfg.cache.header %>'
           }
