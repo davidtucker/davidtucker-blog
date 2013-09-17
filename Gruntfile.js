@@ -6,12 +6,20 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     cfg: {
       cache: {
-        header: 'public,max-age=604800',
-        files: 'build/**/*.{css,js}'
+        normal: {
+          header: 'public,max-age=604800',
+          files: 'build/**/*.{css,js,jpg,png}'
+        },
+        extended: {
+          header: 'public,max-age=194400000',
+          files: 'build/**/*.ico'
+        },
+        uncached: {
+          files: 'build/**/*.{html,txt,xml,svg}'
+        }
       },
       deploy: {
-        staging: 'livestaging.davidtucker.net',
-        production: 'davidtucker.net'
+        bucket: 'livestaging.davidtucker.net'
       }
     },
     clean: {
