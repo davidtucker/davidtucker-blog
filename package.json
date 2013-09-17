@@ -26,7 +26,7 @@
     "grunt-hashres": "~0.3.2",
     "grunt-line-remover": "0.0.2",
     "grunt-parallel": "~0.1.0",
-    "grunt-s3": "~0.2.0-alpha",
+    "grunt-s3": "~0.2.0-alpha.2",
     "grunt-shell": "~0.2.2",
     "grunt-wintersmith": "~0.0.2",
     "moment": "~1.7.2",
