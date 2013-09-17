@@ -6,12 +6,26 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     cfg: {
       cache: {
-        header: 'public,max-age=604800',
-        files: 'build/**/*.{css,js}'
+        normal: {
+          header: 'public,max-age=604800',
+          files: 'build/**/*.{css,js,jpg,png}'
+        },
+        extended: {
+          header: 'public,max-age=194400000',
+          files: 'build/**/*.ico'
+        },
+        uncached: {
+          files: 'build/**/*.{html,txt,xml,svg}'
+        }
+      },
+      compass: {
+        environment: 'development',
       },
       deploy: {
-        staging: 'livestaging.davidtucker.net',
-        production: 'davidtucker.net'
+        bucket: 'livestaging.davidtucker.net'
+      },
+      wintersmith: {
+        config: 'config-staging.json'
       }
     },
     clean: {
@@ -20,19 +34,11 @@ module.exports = function(grunt) {
       ]
     },
     compass: {
-      dist: {
+      compile: {
         options: {
           sassDir: 'work/sass',
           cssDir: 'contents/css',
-          environment: 'production',
-          require: 'zurb-foundation'
-        }
-      },
-      dev: {
-        options: {
-          sassDir: 'work/sass',
-          cssDir: 'contents/css',
-          environment: 'development',
+          environment: '<%= cfg.compass.environment %>',
           require: 'zurb-foundation'
         }
       }
@@ -60,16 +66,8 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd: 'build/',
-            src: ['**/*.jpg'],
-            dest: 'build/',
-            ext: '.jpg'
-          },
-          {
-            expand: true,
-            cwd: 'build/',
-            src: ['**/*.png'],
-            dest: 'build/',
-            ext: '.png'
+            src: ['**/*.{jpg,png}'],
+            dest: 'build/'
           }
         ]
       }
@@ -80,14 +78,9 @@ module.exports = function(grunt) {
         'Gruntfile.js' ]
     },
     wintersmith: {
-      staging: {
+      remote: {
         options: {
-          config: './config-staging.json'
-        }
-      },
-      production: {
-        options: {
-          config: './config-production.json'
+          config: '<%= cfg.wintersmith.config %>'
         }
       },
       preview: {
@@ -121,30 +114,18 @@ module.exports = function(grunt) {
           'work/sass/**/*.scss'
         ],
         tasks: [
-          'compass:dev'
+          'compass:compile'
         ]
       }
     },
     lineremover: {
-      html: {
+      htmlAndXML: {
         files: [
           {
             expand: true,
             cwd: 'build/',
-            src: ['**/*.html'],
-            dest: 'build/',
-            ext: '.html'
-          }
-        ]
-      },
-      xml: {
-        files: [
-          {
-            expand: true,
-            cwd: 'build/',
-            src: ['**/*.xml'],
-            dest: 'build/',
-            ext: '.xml'
+            src: ['**/*.{html,xml}'],
+            dest: 'build/'
           }
         ]
       }
@@ -153,62 +134,46 @@ module.exports = function(grunt) {
       options: {
         key: process.env.AWS_ACCESS_KEY_ID,
         secret: process.env.AWS_SECRET_ACCESS_KEY,
-        access: 'public-read'
+        access: 'public-read',
+        bucket: '<%= cfg.deploy.bucket %>'
       },
-      staging: {
-        options: {
-          bucket: '<%= cfg.deploy.staging %>'
-        },
+      uncached: {
         upload: [
           {
-            src: 'build/**/*.*',
+            src: '<%= cfg.cache.uncached.files %>',
             dest: '/',
             rel: 'build'
           }
         ]
       },
-      production: {
+      normalCache: {
         options: {
-          bucket: '<%= cfg.deploy.production %>'
-        },
-        upload: [
-          {
-            src: 'build/**/*.*',
-            dest: '/',
-            rel: 'build'
-          }
-        ]
-      },
-      stagingCached: {
-        options: {
-          bucket: '<%= cfg.deploy.staging %>',
           headers: {
-            'Cache-Control': '<%= cfg.cache.header %>'
+            'Cache-Control': '<%= cfg.cache.normal.header %>'
           }
         },
         upload: [
           {
-            src: '<%= cfg.cache.files %>',
+            src: '<%= cfg.cache.normal.files %>',
             dest: '/',
             rel: 'build'
           }
         ]
       },
-      productionCached: {
+      extendedCache: {
         options: {
-          bucket: '<%= cfg.deploy.production %>',
           headers: {
-            'Cache-Control': '<%= cfg.cache.header %>'
+            'Cache-Control': '<%= cfg.cache.extended.header %>'
           }
         },
         upload: [
           {
-            src: '<%= cfg.cache.files %>',
+            src: '<%= cfg.cache.extended.files %>',
             dest: '/',
             rel: 'build'
           }
         ]
-      },
+      }
     },
     hashres: {
       options: {
@@ -277,6 +242,20 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-wintersmith');
 
+  // Grunt Custom Tasks
+
+  grunt.registerTask('defineEnvironment', 'A task to set config values per environment', function(environment) {
+    if(environment == "production") {
+      grunt.config.set('cfg.deploy.bucket', 'davidtucker.net');
+      grunt.config.set('cfg.compass.environment', 'production');
+      grunt.config.set('cfg.wintersmith.config', 'config-production.json');
+    } else {
+      grunt.config.set('cfg.deploy.bucket', 'livestaging.davidtucker.net');
+      grunt.config.set('cfg.compass.environment', 'development');
+      grunt.config.set('cfg.wintersmith.config', 'config-staging.json');
+    }
+  });
+
   // Grunt Tasks
 
   grunt.registerTask('release', [
@@ -300,7 +279,7 @@ module.exports = function(grunt) {
   grunt.registerTask('prebuild', [
     'clean:build',
     'browserify2',
-    'compass:dist'
+    'compass'
   ]);
 
   grunt.registerTask('postbuild', [
@@ -312,27 +291,27 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('buildStaging', [
+    'defineEnvironment:staging',
     'prebuild',
-    'wintersmith:staging',
+    'wintersmith:remote',
     'postbuild'
   ]);
 
   grunt.registerTask('buildProduction', [
+    'defineEnvironment:production',
     'prebuild',
-    'wintersmith:production',
+    'wintersmith:remote',
     'postbuild'
   ]);
 
   grunt.registerTask('deployStaging', [
     'buildStaging',
-    's3:staging',
-    's3:stagingCached'
+    's3'
   ]);
 
   grunt.registerTask('deployProduction', [
     'buildProduction',
-    's3:production',
-    's3:productionCached',
+    's3',
     'release'
   ]);
 
