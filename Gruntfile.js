@@ -23,6 +23,9 @@ module.exports = function(grunt) {
       },
       deploy: {
         bucket: 'livestaging.davidtucker.net'
+      },
+      wintersmith: {
+        config: 'config-staging.json'
       }
     },
     clean: {
@@ -83,14 +86,9 @@ module.exports = function(grunt) {
         'Gruntfile.js' ]
     },
     wintersmith: {
-      staging: {
+      remote: {
         options: {
-          config: './config-staging.json'
-        }
-      },
-      production: {
-        options: {
-          config: './config-production.json'
+          config: '<%= cfg.wintersmith.config %>'
         }
       },
       preview: {
@@ -258,9 +256,11 @@ module.exports = function(grunt) {
     if(environment == "production") {
       grunt.config.set('cfg.deploy.bucket', 'davidtucker.net');
       grunt.config.set('cfg.compass.environment', 'production');
+      grunt.config.set('cfg.wintersmith.config', 'config-production.json');
     } else {
       grunt.config.set('cfg.deploy.bucket', 'livestaging.davidtucker.net');
       grunt.config.set('cfg.compass.environment', 'development');
+      grunt.config.set('cfg.wintersmith.config', 'config-staging.json');
     }
   });
 
@@ -301,14 +301,14 @@ module.exports = function(grunt) {
   grunt.registerTask('buildStaging', [
     'defineEnvironment:staging',
     'prebuild',
-    'wintersmith:staging',
+    'wintersmith:remote',
     'postbuild'
   ]);
 
   grunt.registerTask('buildProduction', [
     'defineEnvironment:production',
     'prebuild',
-    'wintersmith:production',
+    'wintersmith:remote',
     'postbuild'
   ]);
 
