@@ -269,6 +269,16 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-wintersmith');
 
+  // Grunt Custom Tasks
+
+  grunt.registerTask('defineEnvironment', 'A task to set config values per environment', function(environment) {
+    if(environment == "production") {
+      grunt.config.set('cfg.deploy.bucket', 'davidtucker.net');
+    } else {
+      grunt.config.set('cfg.deploy.bucket', 'livestaging.davidtucker.net');
+    }
+  });
+
   // Grunt Tasks
 
   grunt.registerTask('release', [
@@ -304,12 +314,14 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('buildStaging', [
+    'defineEnvironment:staging',
     'prebuild',
     'wintersmith:staging',
     'postbuild'
   ]);
 
   grunt.registerTask('buildProduction', [
+    'defineEnvironment:production',
     'prebuild',
     'wintersmith:production',
     'postbuild'
@@ -317,14 +329,12 @@ module.exports = function(grunt) {
 
   grunt.registerTask('deployStaging', [
     'buildStaging',
-    's3:staging',
-    's3:stagingCached'
+    's3'
   ]);
 
   grunt.registerTask('deployProduction', [
     'buildProduction',
-    's3:production',
-    's3:productionCached',
+    's3',
     'release'
   ]);
 
