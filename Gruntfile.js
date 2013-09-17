@@ -18,6 +18,9 @@ module.exports = function(grunt) {
           files: 'build/**/*.{html,txt,xml,svg}'
         }
       },
+      compass: {
+        environment: 'development',
+      },
       deploy: {
         bucket: 'livestaging.davidtucker.net'
       }
@@ -28,19 +31,11 @@ module.exports = function(grunt) {
       ]
     },
     compass: {
-      dist: {
+      compile: {
         options: {
           sassDir: 'work/sass',
           cssDir: 'contents/css',
-          environment: 'production',
-          require: 'zurb-foundation'
-        }
-      },
-      dev: {
-        options: {
-          sassDir: 'work/sass',
-          cssDir: 'contents/css',
-          environment: 'development',
+          environment: '<%= cfg.compass.environment %>',
           require: 'zurb-foundation'
         }
       }
@@ -129,7 +124,7 @@ module.exports = function(grunt) {
           'work/sass/**/*.scss'
         ],
         tasks: [
-          'compass:dev'
+          'compass:compile'
         ]
       }
     },
@@ -262,8 +257,10 @@ module.exports = function(grunt) {
   grunt.registerTask('defineEnvironment', 'A task to set config values per environment', function(environment) {
     if(environment == "production") {
       grunt.config.set('cfg.deploy.bucket', 'davidtucker.net');
+      grunt.config.set('cfg.compass.environment', 'production');
     } else {
       grunt.config.set('cfg.deploy.bucket', 'livestaging.davidtucker.net');
+      grunt.config.set('cfg.compass.environment', 'development');
     }
   });
 
@@ -290,7 +287,7 @@ module.exports = function(grunt) {
   grunt.registerTask('prebuild', [
     'clean:build',
     'browserify2',
-    'compass:dist'
+    'compass'
   ]);
 
   grunt.registerTask('postbuild', [
