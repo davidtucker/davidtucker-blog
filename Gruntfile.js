@@ -161,62 +161,46 @@ module.exports = function(grunt) {
       options: {
         key: process.env.AWS_ACCESS_KEY_ID,
         secret: process.env.AWS_SECRET_ACCESS_KEY,
-        access: 'public-read'
+        access: 'public-read',
+        bucket: '<%= cfg.deploy.bucket %>'
       },
-      staging: {
-        options: {
-          bucket: '<%= cfg.deploy.staging %>'
-        },
+      uncached: {
         upload: [
           {
-            src: 'build/**/*.*',
+            src: '<%= cfg.cache.uncached.files %>',
             dest: '/',
             rel: 'build'
           }
         ]
       },
-      production: {
+      normalCache: {
         options: {
-          bucket: '<%= cfg.deploy.production %>'
-        },
-        upload: [
-          {
-            src: 'build/**/*.*',
-            dest: '/',
-            rel: 'build'
-          }
-        ]
-      },
-      stagingCached: {
-        options: {
-          bucket: '<%= cfg.deploy.staging %>',
           headers: {
-            'Cache-Control': '<%= cfg.cache.header %>'
+            'Cache-Control': '<%= cfg.cache.normal.header %>'
           }
         },
         upload: [
           {
-            src: '<%= cfg.cache.files %>',
+            src: '<%= cfg.cache.normal.files %>',
             dest: '/',
             rel: 'build'
           }
         ]
       },
-      productionCached: {
+      extendedCache: {
         options: {
-          bucket: '<%= cfg.deploy.production %>',
           headers: {
-            'Cache-Control': '<%= cfg.cache.header %>'
+            'Cache-Control': '<%= cfg.cache.extended.header %>'
           }
         },
         upload: [
           {
-            src: '<%= cfg.cache.files %>',
+            src: '<%= cfg.cache.extended.files %>',
             dest: '/',
             rel: 'build'
           }
         ]
-      },
+      }
     },
     hashres: {
       options: {
