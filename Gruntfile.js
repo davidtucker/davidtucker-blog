@@ -134,25 +134,13 @@ module.exports = function(grunt) {
       }
     },
     lineremover: {
-      html: {
+      htmlAndXML: {
         files: [
           {
             expand: true,
             cwd: 'build/',
-            src: ['**/*.html'],
-            dest: 'build/',
-            ext: '.html'
-          }
-        ]
-      },
-      xml: {
-        files: [
-          {
-            expand: true,
-            cwd: 'build/',
-            src: ['**/*.xml'],
-            dest: 'build/',
-            ext: '.xml'
+            src: ['**/*.{html,xml}'],
+            dest: 'build/'
           }
         ]
       }
