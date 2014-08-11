@@ -9,9 +9,9 @@ changefreq: monthly
 priority: 0.7
 ---
 
-I (David Tucker) am a software architect and developer as well as a speaker and writer within the industry.  I currently serve as the Director of Research and Development and a Principal Architect for <a href="http://www.universalmind.com/" target="_blank">Universal Mind</a>.  In addition, I currently manage the iOS practice there.
+I (David Tucker) am a software architect and developer as well as a speaker and writer within the industry.  I currently serve as the Vice President of Technology for <a href="http://www.universalmind.com/" target="_blank">Universal Mind</a>.
 
-I am a developer who focuses on technologies like iOS, HTML, JavaScript, and NodeJS (among others).  My projects at Universal Mind have included work for companies like FedEx, Sony Music, Principal Financial Group, AT&T and many others.  I was the lead architect on projects like <a href="http://www.universalmind.com/blog/the-complete-digital-jimi-hendrix-experience-now-on-the-iphone-and-ipad" target="_blank">Jimi Hendrix: The Complete Experience</a> for Sony Music and Universal Mind's own Webby award winning [iPad Table](/articles/ipad-table-intro/).
+During my time at Universal Mind, I have worked to craft initiatives with companies like FedEx, Sony Music, Principal Financial Group, AT&T and many others.  I was the lead architect on projects like <a href="http://www.universalmind.com/blog/the-complete-digital-jimi-hendrix-experience-now-on-the-iphone-and-ipad" target="_blank">Jimi Hendrix: The Complete Experience</a> for Sony Music and Universal Mind's own Webby award winning [iPad Table](/articles/ipad-table-intro/).
 
 In addition to development and architecture, I have worked with many of Universal Mind's clients to help formulate an effective enterprise technical digital strategy that meets to demands of the current (and future) landscape of the evolving digital space.
 
