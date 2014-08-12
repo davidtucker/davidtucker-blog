@@ -26,6 +26,10 @@ Working on any publication is a team effort.  I truly enjoyed the opportunity to
 
 I have included a selection of writing from each of the last few years here:
 
+### 2014
+
+* <span class="name">Medium</span>: <a href="https://medium.com/@davidtucker/10-skills-developers-should-invest-in-for-2014-64eb28781489" target="_blank">10 Skills Developers Should Invest In for 2014</a>
+
 ### 2013
 
 * <span class="name">VentureBeat</span>: <a href="http://venturebeat.com/2013/09/10/5-ways-apples-new-iphone-5c-5s-and-ios-7-will-impact-your-business/" target="_blank">5 ways Apple’s new iPhone 5C, 5S, and iOS 7 will impact your business</a>
@@ -74,6 +78,10 @@ I have included a selection of writing from each of the last few years here:
 ## Conference Speaker
 
 Speaking at industry conferences is something I consider very important.  I try to schedule a few speaking engagements each year.  I have listed a breakdown of some of the recent conferences I have spoken at:
+
+### 2014
+
+* <span class="name">Interop Las Vegas</span>: Cross-Platform Mobile Applications
 
 ### 2013
 

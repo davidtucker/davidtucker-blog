@@ -17,8 +17,8 @@ var populateSemanticInformation = function() {
     "{subjectPrefix}": "[DavidTucker.net]",
     "{description}": description,
     "{imageURL}": imageURL,
-    "{twitterAccount}": "@mindmillmedia",
-    "{twitterAttribution}": "by @mindmillmedia"
+    "{twitterAccount}": "@_davidtucker_",
+    "{twitterAttribution}": "by @_davidtucker_"
   };
 };
 
@@ -94,7 +94,7 @@ var discussClick = function(eventObj) {
 };
 
 var twitterFollowClick = function() {
-  var url = "https://twitter.com/intent/user?screen_name=mindmillmedia";
+  var url = "https://twitter.com/intent/user?screen_name=_davidtucker_";
   openPage(url, "TwitterFollow", "height=535,width=500");
 };
 
