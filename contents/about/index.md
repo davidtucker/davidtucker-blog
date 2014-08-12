@@ -27,5 +27,5 @@ I present at many industry events annually.  These include conferences like AdTe
 
 ## Contact Me
 
-<a id="contact"></a>The best way to reach me is on Twitter at <a href="http://www.twitter.com/mindmillmedia" target="_blank">@mindmillmedia</a>.  In addition, you can send me a message and connect on <a href="http://www.linkedin.com/in/davidtuckernet/" target="_blank">LinkedIn</a>.
+<a id="contact"></a>The best way to reach me is on Twitter at <a href="http://www.twitter.com/_davidtucker_" target="_blank">@_davidtucker_</a>.  In addition, you can send me a message and connect on <a href="http://www.linkedin.com/in/davidtuckernet/" target="_blank">LinkedIn</a>.
 
